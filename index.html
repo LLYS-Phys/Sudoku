@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Sudoku Puzzles</title>
+        <link href="css/css.css" rel="stylesheet" tyoe="text/css">
+    </head>
+    <body>
+
+        <select id="diffDrop" name="content" onchange="show(this)">
+            <option value="0">Select Difficulty</option>
+            <option value="1">Easy</option>
+            <option value="2">Medium</option>
+            <option value="3">Hard</option>
+            <option value="4">Random</option>
+        </select>
+        
+        <div id="default" class="sud">
+            <iframe src="https://sugoku.herokuapp.com/board">Blank</iframe>
+        </div>
+        <div id="easy" class="sud">
+            <iframe src="https://sugoku.herokuapp.com/board?difficulty=easy">Easy</iframe>
+        </div>
+        <div id="medium" class="sud">
+            <iframe src="https://sugoku.herokuapp.com/board?difficulty=medium">Medium</iframe>
+        </div>
+        <div id="hard" class="sud">
+            <iframe src="https://sugoku.herokuapp.com/board?difficulty=hard">Hard</iframe>
+        </div>
+        <div id="random" class="sud">
+            <iframe src="https://sugoku.herokuapp.com/board?difficulty=random">Random</iframe>
+        </div>
+
+
+
+
+
+    <script src="js/js.js"></script>     
+    </body>
+</html>
