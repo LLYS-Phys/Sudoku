@@ -7,34 +7,118 @@
     </head>
     <body>
 
-        <select id="diffDrop" name="content" onchange="show(this)">
-            <option value="0">Select Difficulty</option>
-            <option value="1">Easy</option>
-            <option value="2">Medium</option>
-            <option value="3">Hard</option>
-            <option value="4">Random</option>
+        <select id="diffDrop" name="content" >
+            <option>Select Difficulty</option>
+            <option>Easy</option>
+            <option>Medium</option>
+            <option>Hard</option>
+            <option>Random</option>
         </select>
         
-        <div id="default" class="sud">
-            <iframe src="https://sugoku.herokuapp.com/board">Blank</iframe>
-        </div>
-        <div id="easy" class="sud">
-            <iframe src="https://sugoku.herokuapp.com/board?difficulty=easy">Easy</iframe>
-        </div>
-        <div id="medium" class="sud">
-            <iframe src="https://sugoku.herokuapp.com/board?difficulty=medium">Medium</iframe>
-        </div>
-        <div id="hard" class="sud">
-            <iframe src="https://sugoku.herokuapp.com/board?difficulty=hard">Hard</iframe>
-        </div>
-        <div id="random" class="sud">
-            <iframe src="https://sugoku.herokuapp.com/board?difficulty=random">Random</iframe>
-        </div>
+        <table>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>  
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>  
+            </tr>
+            <tr class="row">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>  
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>  
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>   
+            </tr>
+            <tr class="row">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>  
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>  
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>  
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>  
+            </tr>
+        </table>
 
-
-
-
-
+        <button onclick="clear()" id="clearAll">Clear Board</button>
+        <button onClick="newG()" id="game">New Game</button>
     <script src="js/js.js"></script>     
     </body>
 </html>
