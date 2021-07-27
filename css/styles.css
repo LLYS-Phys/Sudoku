@@ -1,0 +1,38 @@
+table, td{
+    border: 1px solid black;
+    border-spacing:0;
+}
+table{
+    width:50%;;
+    border-width:0.2vw;
+    margin:auto;
+    height:-20vw;
+}
+td{
+    height:2.8vw;
+    padding: 1%;
+    font-size:3vw;
+    text-align: center;
+}
+.row td{
+    border-bottom-width: 0.5vw;
+}
+input{
+    width:4vw;
+    border:none;
+    font-size:3vw;
+    text-align: center;
+    color:rgb(102, 102, 102);
+    font-style:italic;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#diffDrop{
+    width:15%;
+}
+button{
+    width:7.5%
+}
