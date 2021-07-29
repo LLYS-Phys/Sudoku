@@ -493,7 +493,12 @@ function drawBoard(board){
 //        alert("Congratulations!")
 //    }
 }
+    for(t=0; t<9; t++){
+//        console.log(rows[t]);
+//        console.log(rows[t].children)
+    }
 
+ //   document.getElementsByTagName('input').style.color = "yellow";
 }
    
 var sel = document.getElementById('diffDrop').children;
