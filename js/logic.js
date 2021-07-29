@@ -11,7 +11,7 @@ function drawBoard(board){
     
     for(k=0; k<81; k++){
         if(input[k].innerHTML == 0){
-            input[k].outerHTML = "<td><input type='number' name='num' value='0'></td>";
+            input[k].outerHTML = "<td><input type='number' name='num'></td>";
         }
     }
 
@@ -57,16 +57,15 @@ function drawBoard(board){
 
     function rules(){
 
-        let row1 = rows[0].children;
-        console.log(row1);
-        let row2 = rows[1].children;
-        let row3 = rows[2].children;
-        let row4 = rows[3].children;
-        let row5 = rows[4].children;
-        let row6 = rows[5].children;
-        let row7 = rows[6].children;
-        let row8 = rows[7].children;
-        let row9 = rows[8].children;
+        let row1 = rows[0];
+        let row2 = rows[1];
+        let row3 = rows[2];
+        let row4 = rows[3];
+        let row5 = rows[4];
+        let row6 = rows[5];
+        let row7 = rows[6];
+        let row8 = rows[7];
+        let row9 = rows[8];
 
         let col1 = [
             rows[0].children[0],
@@ -268,34 +267,88 @@ function drawBoard(board){
         ]
 
         if(this.value == parseInt(this.value)){
-                if(this.value == row1[0].innerText){
-                    alert("You have the same value twice in that row!")
+
+            for(j1=0; j1<9; j1++){
+                if(this.parentNode.parentNode == row1 && this.value == row1.children[j1].innerText){
+                    alert("You have duplicate values in row 1")
                 }
-                if(this.value == row2[1].innerText){
-                    alert("You have the same value twice in that row!")
+            }
+            for(j2=0; j2<9; j2++){
+                if(this.parentNode.parentNode == row2 && this.value == row2.children[j2].innerText){
+                    alert("You have duplicate values in row 2")
                 }
-                if(this.value == row3[2].innerText){
-                    alert("You have the same value twice in that row!")
+            }
+            for(j3=0; j3<9; j3++){
+                if(this.parentNode.parentNode == row3 && this.value == row3.children[j3].innerText){
+                    alert("You have duplicate values in row 3")
                 }
-                if(this.value == row4[3].innerText){
-                    alert("You have the same value twice in that row!")
+            }
+            for(j4=0; j4<9; j4++){
+                if(this.parentNode.parentNode == row4 && this.value == row4.children[j4].innerText){
+                    alert("You have duplicate values in row 4")
                 }
-                if(this.value == row5[4].innerText){
-                    alert("You have the same value twice in that row!")
+            }
+            for(j5=0; j5<9; j5++){
+                if(this.parentNode.parentNode == row5 && this.value == row5.children[j5].innerText){
+                    alert("You have duplicate values in row 5")
                 }
-                if(this.value == row6[5].innerText){
-                    alert("You have the same value twice in that row!")
+            }
+            for(j6=0; j6<9; j6++){
+                if(this.parentNode.parentNode == row6 && this.value == row6.children[j6].innerText){
+                    alert("You have duplicate values in row 6")
                 }
-                if(this.value == row7[6].innerText){
-                    alert("You have the same value twice in that row!")
+            }
+            for(j7=0; j7<9; j7++){
+                if(this.parentNode.parentNode == row7 && this.value == row7.children[j7].innerText){
+                    alert("You have duplicate values in row 7")
                 }
-                if(this.value == row8[7].innerText){
-                    alert("You have the same value twice in that row!")
+            }
+            for(j8=0; j8<9; j8++){
+                if(this.parentNode.parentNode == row8 && this.value == row8.children[j8].innerText){
+                    alert("You have duplicate values in row 8")
                 }
-                if(this.value == row9[8].innerText){
-                    alert("You have the same value twice in that row!")
+            }
+            for(j9=0; j9<9; j9++){
+                if(this.parentNode.parentNode == row9 && this.value == row9.children[j9].innerText){
+                    alert("You have duplicate values in row 9")
                 }
             
+ //               }
+//                let row = rows[j1]
+//                for(j2=0;j2<9; j2++){
+//                    if(this.value == row.children[j2].innerText){
+//                        alert("ifdjg")
+//                    }
+ //               }
+            
+//                if(this.value == row1[0].innerText){
+//                    alert("You have the same value twice in that row!")
+//                }
+//                if(this.value == row2[1].innerText){
+//                    alert("You have the same value twice in that row!")
+//                }
+//                if(this.value == row3[2].innerText){
+//                    alert("You have the same value twice in that row!")
+//                }
+//                if(this.value == row4[3].innerText){
+//                    alert("You have the same value twice in that row!")
+//                }
+//                if(this.value == row5[4].innerText){
+//                    alert("You have the same value twice in that row!")
+//                }
+//                if(this.value == row6[5].innerText){
+//                    alert("You have the same value twice in that row!")
+//                }
+//                if(this.value == row7[6].innerText){
+//                    alert("You have the same value twice in that row!")
+//                }
+//                if(this.value == row8[7].innerText){
+//                    alert("You have the same value twice in that row!")
+//                }
+//                if(this.value == row9[8].innerText){
+//                    alert("You have the same value twice in that row!")
+//                }
+            }
         
         }
 
