@@ -256,15 +256,24 @@ function drawBoard(board){
         ]
 
         if(this.value == parseInt(this.value)){
-
+       //     console.log(row1.children[1].firstElementChild.value);
             for(j1=0; j1<9; j1++){
                 if(this.parentNode.parentNode == row1 && this.value == row1.children[j1].innerText){
+             //       console.dir(row1.children[j1].children[0].value);
+                    this.style.color = 'red';
+                    alert("You have duplicate values in row 1")
+                    return
+                }
+                else if(this.parentNode.parentNode == row1 && this.parentNode !== row1.children[j1] && this.value == row1.children[j1].children[0].value){
+                    console.log(this.parentNode.parentNode);
+                    console.log(this);
                     this.style.color = 'red';
                     alert("You have duplicate values in row 1")
                     return
                 }
                 else{this.style.color = 'rgb(102, 102, 102)'}
             }
+            
             for(j2=0; j2<9; j2++){
                 if(this.parentNode.parentNode == row2 && this.value == row2.children[j2].innerText){
                     this.style.color = 'red';
@@ -479,13 +488,12 @@ function drawBoard(board){
 //    console.log(input2);
     input2.addEventListener('blur', check, false);
     input2.addEventListener('blur', rules, false);
-}
-    for(t=0; t<9; t++){
-//        console.log(rows[t]);
-//        console.log(rows[t].children)
-    }
 
- //   document.getElementsByTagName('input').style.color = "yellow";
+//    if(input[r].innerText !== 0 || "" && input[r].children[0].value !==0 || ""){
+//        alert("Congratulations!")
+//    }
+}
+
 }
    
 var sel = document.getElementById('diffDrop').children;
@@ -560,4 +568,11 @@ var NG = document.getElementById('game');
 NG.addEventListener('click', newG());
 function newG(){
     seli();
+}
+
+function Undo(){
+    document.execCommand("undo", false, null)
+}
+function Redo(){
+    document.execCommand("redo", false, null)
 }
