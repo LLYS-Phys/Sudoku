@@ -117,9 +117,12 @@
             </tr>
         </table>
 
-        <button onclick="clear()" id="clearAll">Clear Board</button>
         <button onClick="newG()" id="game">New Game</button>
-        
+        <button onmouseup="Undo()">Undo</button>
+        <br>
+        <button onclick="clear()" id="clearAll">Clear Board</button>
+        <button onmouseup="Redo()">Redo</button>
+
     <script src="js/logic.js"></script>     
     </body>
 </html>
