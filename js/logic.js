@@ -611,8 +611,38 @@ function drawBoard(board){
                 }
                 else{this.style.color = 'rgb(102, 102, 102)'}
             }
+            for(r=0; r<9; r++){
+                if(row1.children[r].innerText == 0 && 
+                    row2.children[r].innerText == 0 &&
+                    row3.children[r].innerText == 0 &&
+                    row4.children[r].innerText == 0 &&
+                    row5.children[r].innerText == 0 &&
+                    row6.children[r].innerText == 0 &&
+                    row7.children[r].innerText == 0 &&
+                    row8.children[r].innerText == 0 &&
+                    row9.children[r].innerText == 0){
+                    if(row1.children[r].children[0].value !== "" &&
+                    row2.children[r].children[0].value !== "" &&
+                    row3.children[r].children[0].value !== "" &&
+                    row4.children[r].children[0].value !== "" &&
+                    row5.children[r].children[0].value !== "" &&
+                    row6.children[r].children[0].value !== "" &&
+                    row7.children[r].children[0].value !== "" &&
+                    row8.children[r].children[0].value !== "" &&
+                    row9.children[r].children[0].value !== ""
+                    ){
+                        alert("Congratulations")
+                    }
+                }
+            }
         }
     }
+
+//    else if(row7.children[j7].innerText == 0 && this.parentNode.parentNode == row7 && this.parentNode !== row7.children[j7] && this.value == row7.children[j7].children[0].value){
+//        this.style.color = 'red';
+//        alert("You have duplicate values in row 7")
+//        return
+//    }
 
     for(r=0; r<81; r++){
     input2 = document.getElementsByName('num')[r];
