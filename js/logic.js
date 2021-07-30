@@ -264,7 +264,7 @@ function drawBoard(board){
                     alert("You have duplicate values in row 1")
                     return
                 }
-                else if(this.parentNode.parentNode == row1 && this.parentNode !== row1.children[j1] && this.value == row1.children[j1].children[0].value){
+                else if(row1.children[j1].innerText == 0 && this.parentNode.parentNode == row1 && this.parentNode !== row1.children[j1] && this.value == row1.children[j1].children[0].value){
                     console.log(this.parentNode.parentNode);
                     console.log(this);
                     this.style.color = 'red';
@@ -280,10 +280,20 @@ function drawBoard(board){
                     alert("You have duplicate values in row 2")
                     return
                 }
+                else if(row2.children[j2].innerText == 0 && this.parentNode.parentNode == row2 && this.parentNode !== row2.children[j2] && this.value == row2.children[j2].children[0].value){
+                    this.style.color = 'red';
+                    alert("You have duplicate values in row 2")
+                    return
+                }
                 else{this.style.color = 'rgb(102, 102, 102)'}
             }
             for(j3=0; j3<9; j3++){
                 if(this.parentNode.parentNode == row3 && this.value == row3.children[j3].innerText){
+                    this.style.color = 'red';
+                    alert("You have duplicate values in row 3")
+                    return
+                }
+                else if(row3.children[j3].innerText == 0 && this.parentNode.parentNode == row3 && this.parentNode !== row3.children[j3] && this.value == row3.children[j3].children[0].value){
                     this.style.color = 'red';
                     alert("You have duplicate values in row 3")
                     return
@@ -296,15 +306,31 @@ function drawBoard(board){
                     alert("You have duplicate values in row 4")
                     return
                 }
+                else if(row4.children[j4].innerText == 0 && this.parentNode.parentNode == row4 && this.parentNode !== row4.children[j4] && this.value == row4.children[j4].children[0].value){
+                    this.style.color = 'red';
+                    alert("You have duplicate values in row 4")
+                    return
+                }
                 else{this.style.color = 'rgb(102, 102, 102)'}
             }
             for(j5=0; j5<9; j5++){
                 if(this.parentNode.parentNode == row5 && this.value == row5.children[j5].innerText){
                     alert("You have duplicate values in row 5")
                 }
+                else if(row5.children[j5].innerText == 0 && this.parentNode.parentNode == row5 && this.parentNode !== row5.children[j5] && this.value == row5.children[j5].children[0].value){
+                    this.style.color = 'red';
+                    alert("You have duplicate values in row 5")
+                    return
+                }
+                else{this.style.color = 'rgb(102, 102, 102'}
             }
             for(j6=0; j6<9; j6++){
                 if(this.parentNode.parentNode == row6 && this.value == row6.children[j6].innerText){
+                    this.style.color = 'red';
+                    alert("You have duplicate values in row 6")
+                    return
+                }
+                else if(row6.children[j6].innerText == 0 && this.parentNode.parentNode == row6 && this.parentNode !== row6.children[j6] && this.value == row6.children[j6].children[0].value){
                     this.style.color = 'red';
                     alert("You have duplicate values in row 6")
                     return
@@ -317,10 +343,20 @@ function drawBoard(board){
                     alert("You have duplicate values in row 7")
                     return
                 }
+                else if(row7.children[j7].innerText == 0 && this.parentNode.parentNode == row7 && this.parentNode !== row7.children[j7] && this.value == row7.children[j7].children[0].value){
+                    this.style.color = 'red';
+                    alert("You have duplicate values in row 7")
+                    return
+                }
                 else{this.style.color = 'rgb(102, 102, 102)'}
             }
             for(j8=0; j8<9; j8++){
                 if(this.parentNode.parentNode == row8 && this.value == row8.children[j8].innerText){
+                    this.style.color = 'red';
+                    alert("You have duplicate values in row 8")
+                    return
+                }
+                else if(row8.children[j8].innerText == 0 && this.parentNode.parentNode == row8 && this.parentNode !== row8.children[j8] && this.value == row8.children[j8].children[0].value){
                     this.style.color = 'red';
                     alert("You have duplicate values in row 8")
                     return
@@ -333,10 +369,20 @@ function drawBoard(board){
                     alert("You have duplicate values in row 9")
                     return
                 }
+                else if(row9.children[j9].innerText == 0 && this.parentNode.parentNode == row9 && this.parentNode !== row9.children[j9] && this.value == row9.children[j9].children[0].value){
+                    this.style.color = 'red';
+                    alert("You have duplicate values in row 9")
+                    return
+                }
                 else{this.style.color = 'rgb(102, 102, 102)'}
             }
             for(j10=0; j10<9; j10++){
                 if(col1.includes(this.parentNode) && this.value == col1[j10].innerText){
+                    this.style.color = 'red';
+                    alert("You have duplicate values in column 1")
+                    return
+                }
+                else if(col1[j10].innerText == 0 && col1.includes(this.parentNode) && this.parentNode !== col1[j10] && this.value == col1[j10].children[0].value){
                     this.style.color = 'red';
                     alert("You have duplicate values in column 1")
                     return
@@ -349,10 +395,20 @@ function drawBoard(board){
                     alert("You have duplicate values in column 2")
                     return
                 }
+                else if(col2[j11].innerText == 0 && col2.includes(this.parentNode) && this.parentNode !== col2[j11] && this.value == col2[j11].children[0].value){
+                    this.style.color = 'red';
+                    alert("You have duplicate values in column 2")
+                    return
+                }
                 else{this.style.color = 'rgb(102, 102, 102)'}
             }
             for(j12=0; j12<9; j12++){
                 if(col3.includes(this.parentNode) && this.value == col3[j12].innerText){
+                    this.style.color = 'red';
+                    alert("You have duplicate values in column 3")
+                    return
+                }
+                else if(col3[j12].innerText == 0 && col3.includes(this.parentNode) && this.parentNode !== col3[j12] && this.value == col3[j12].children[0].value){
                     this.style.color = 'red';
                     alert("You have duplicate values in column 3")
                     return
@@ -365,10 +421,20 @@ function drawBoard(board){
                     alert("You have duplicate values in column 4")
                     return
                 }
+                else if(col4[j13].innerText == 0 && col4.includes(this.parentNode) && this.parentNode !== col4[j13] && this.value == col4[j13].children[0].value){
+                    this.style.color = 'red';
+                    alert("You have duplicate values in column 4")
+                    return
+                }
                 else{this.style.color = 'rgb(102, 102, 102)'}
             }
             for(j14=0; j14<9; j14++){
                 if(col5.includes(this.parentNode) && this.value == col5[j14].innerText){
+                    this.style.color = 'red';
+                    alert("You have duplicate values in column 5")
+                    return
+                }
+                else if(col5[j14].innerText == 0 && col5.includes(this.parentNode) && this.parentNode !== col5[j14] && this.value == col5[j14].children[0].value){
                     this.style.color = 'red';
                     alert("You have duplicate values in column 5")
                     return
@@ -381,10 +447,20 @@ function drawBoard(board){
                     alert("You have duplicate values in column 6")
                     return
                 }
+                else if(col6[j15].innerText == 0 && col6.includes(this.parentNode) && this.parentNode !== col6[j15] && this.value == col6[j15].children[0].value){
+                    this.style.color = 'red';
+                    alert("You have duplicate values in column 6")
+                    return
+                }
                 else{this.style.color = 'rgb(102, 102, 102)'}
             }
             for(j16=0; j16<9; j16++){
                 if(col7.includes(this.parentNode) && this.value == col7[j16].innerText){
+                    this.style.color = 'red';
+                    alert("You have duplicate values in column 7")
+                    return
+                }
+                else if(col7[j16].innerText == 0 && col7.includes(this.parentNode) && this.parentNode !== col7[j16] && this.value == col7[j16].children[0].value){
                     this.style.color = 'red';
                     alert("You have duplicate values in column 7")
                     return
@@ -397,10 +473,20 @@ function drawBoard(board){
                     alert("You have duplicate values in column 8")
                     return
                 }
+                else if(col8[j17].innerText == 0 && col8.includes(this.parentNode) && this.parentNode !== col8[j17] && this.value == col8[j17].children[0].value){
+                    this.style.color = 'red';
+                    alert("You have duplicate values in column 8")
+                    return
+                }
                 else{this.style.color = 'rgb(102, 102, 102)'}
             }
-            for(j17=0; j17<9; j17++){
-                if(col9.includes(this.parentNode) && this.value == col9[j17].innerText){
+            for(j18=0; j18<9; j18++){
+                if(col9.includes(this.parentNode) && this.value == col9[j18].innerText){
+                    this.style.color = 'red';
+                    alert("You have duplicate values in column 9")
+                    return
+                }
+                else if(col9[j18].innerText == 0 && col9.includes(this.parentNode) && this.parentNode !== col9[j18] && this.value == col9[j18].children[0].value){
                     this.style.color = 'red';
                     alert("You have duplicate values in column 9")
                     return
@@ -408,16 +494,13 @@ function drawBoard(board){
                 else{this.style.color = 'rgb(102, 102, 102)'}
             }
 
-            for(j18=0; j18<9; j18++){
-                if(mat1.includes(this.parentNode) && this.value == mat1[j18].innerText){
+            for(j19=0; j19<9; j19++){
+                if(mat1.includes(this.parentNode) && this.value == mat1[j19].innerText){
                     this.style.color = 'red';
                     alert("You have duplicate values in the 1st 3x3 range")
                     return
                 }
-                else{this.style.color = 'rgb(102, 102, 102)'}
-            }
-            for(j19=0; j19<9; j19++){
-                if(mat2.includes(this.parentNode) && this.value == mat2[j19].innerText){
+                else if(mat1[j19].innerText == 0 && mat1.includes(this.parentNode) && this.parentNode !== mat1[j19] && this.value == mat1[j19].children[0].value){
                     this.style.color = 'red';
                     alert("You have duplicate values in the 1st 3x3 range")
                     return
@@ -425,7 +508,12 @@ function drawBoard(board){
                 else{this.style.color = 'rgb(102, 102, 102)'}
             }
             for(j20=0; j20<9; j20++){
-                if(mat3.includes(this.parentNode) && this.value == mat3[j20].innerText){
+                if(mat2.includes(this.parentNode) && this.value == mat2[j20].innerText){
+                    this.style.color = 'red';
+                    alert("You have duplicate values in the 1st 3x3 range")
+                    return
+                }
+                else if(mat2[j20].innerText == 0 && mat2.includes(this.parentNode) && this.parentNode !== mat2[j20] && this.value == mat2[j20].children[0].value){
                     this.style.color = 'red';
                     alert("You have duplicate values in the 2nd 3x3 range")
                     return
@@ -433,7 +521,12 @@ function drawBoard(board){
                 else{this.style.color = 'rgb(102, 102, 102)'}
             }
             for(j21=0; j21<9; j21++){
-                if(mat4.includes(this.parentNode) && this.value == mat4[j21].innerText){
+                if(mat3.includes(this.parentNode) && this.value == mat3[j21].innerText){
+                    this.style.color = 'red';
+                    alert("You have duplicate values in the 3rd 3x3 range")
+                    return
+                }
+                else if(mat3[j21].innerText == 0 && mat3.includes(this.parentNode) && this.parentNode !== mat3[j21] && this.value == mat3[j21].children[0].value){
                     this.style.color = 'red';
                     alert("You have duplicate values in the 3rd 3x3 range")
                     return
@@ -441,39 +534,77 @@ function drawBoard(board){
                 else{this.style.color = 'rgb(102, 102, 102)'}
             }
             for(j22=0; j22<9; j22++){
-                if(mat5.includes(this.parentNode) && this.value == mat5[j22].innerText){
+                if(mat4.includes(this.parentNode) && this.value == mat4[j22].innerText){
+                    this.style.color = 'red';
+                    alert("You have duplicate values in the 4th 3x3 range")
+                    return
+                }
+                else if(mat4[j22].innerText == 0 && mat4.includes(this.parentNode) && this.parentNode !== mat4[j22] && this.value == mat4[j22].children[0].value){
+                    this.style.color = 'red';
+                    alert("You have duplicate values in the 4th 3x3 range")
+                    return
+                }
+                else{this.style.color = 'rgb(102, 102, 102)'}
+            }
+            for(j23=0; j23<9; j23++){
+                if(mat5.includes(this.parentNode) && this.value == mat5[j23].innerText){
+                    this.style.color = 'red';
+                    alert("You have duplicate values in the 5th 3x3 range")
+                    return
+                }
+                else if(mat5[j23].innerText == 0 && mat5.includes(this.parentNode) && this.parentNode !== mat5[j23] && this.value == mat5[j23].children[0].value){
                     this.style.color = 'red';
                     alert("You have duplicate values in the 5th 3x3 range")
                     return
                 }
                 else{this.style.color = 'rgb(102, 102, 102)'}
             }
-            for(j23=0; j23<9; j23++){
-                if(mat6.includes(this.parentNode) && this.value == mat6[j23].innerText){
+            for(j24=0; j24<9; j24++){
+                if(mat6.includes(this.parentNode) && this.value == mat6[j24].innerText){
+                    this.style.color = 'red';
+                    alert("You have duplicate values in the 6th 3x3 range")
+                    return
+                }
+                else if(mat6[j24].innerText == 0 && mat6.includes(this.parentNode) && this.parentNode !== mat6[j24] && this.value == mat6[j24].children[0].value){
                     this.style.color = 'red';
                     alert("You have duplicate values in the 6th 3x3 range")
                     return
                 }
                 else{this.style.color = 'rgb(102, 102, 102)'}
             }
-            for(j24=0; j24<9; j24++){
-                if(mat7.includes(this.parentNode) && this.value == mat7[j24].innerText){
+            for(j25=0; j25<9; j25++){
+                if(mat7.includes(this.parentNode) && this.value == mat7[j25].innerText){
+                    this.style.color = 'red';
+                    alert("You have duplicate values in the 7th 3x3 range")
+                    return
+                }
+                else if(mat7[j25].innerText == 0 && mat7.includes(this.parentNode) && this.parentNode !== mat7[j25] && this.value == mat7[j25].children[0].value){
                     this.style.color = 'red';
                     alert("You have duplicate values in the 7th 3x3 range")
                     return
                 }
                 else{this.style.color = 'rgb(102, 102, 102)'}
             }
-            for(j25=0; j25<9; j25++){
-                if(mat8.includes(this.parentNode) && this.value == mat8[j25].innerText){
+            for(j26=0; j26<9; j26++){
+                if(mat8.includes(this.parentNode) && this.value == mat8[j26].innerText){
+                    this.style.color = 'red';
+                    alert("You have duplicate values in the 8th 3x3 range")
+                    return
+                }
+                else if(mat8[j26].innerText == 0 && mat8.includes(this.parentNode) && this.parentNode !== mat8[j26] && this.value == mat8[j26].children[0].value){
                     this.style.color = 'red';
                     alert("You have duplicate values in the 8th 3x3 range")
                     return
                 }
                 else{this.style.color = 'rgb(102, 102, 102)'}
             }
-            for(j26=0; j26<9; j26++){
-                if(mat9.includes(this.parentNode) && this.value == mat9[j26].innerText){
+            for(j27=0; j27<9; j27++){
+                if(mat9.includes(this.parentNode) && this.value == mat9[j27].innerText){
+                    this.style.color = 'red';
+                    alert("You have duplicate values in the 9th 3x3 range")
+                    return
+                }
+                else if(mat9[j27].innerText == 0 && mat9.includes(this.parentNode) && this.parentNode !== mat9[j27] && this.value == mat9[j27].children[0].value){
                     this.style.color = 'red';
                     alert("You have duplicate values in the 9th 3x3 range")
                     return
