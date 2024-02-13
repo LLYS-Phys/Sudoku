@@ -6,123 +6,128 @@
         <link href="css/styles.css" rel="stylesheet" tyoe="text/css">
     </head>
     <body>
+        <h1>Sudoku</h1>
+        <div id="sudoku-container">
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="col"></td>
+                    <td></td>
+                    <td></td>
+                    <td class="col"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>  
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="col"></td>
+                    <td></td>
+                    <td></td>
+                    <td class="col"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>  
+                </tr>
+                <tr class="row">
+                    <td></td>
+                    <td></td>
+                    <td class="col"></td>
+                    <td></td>
+                    <td></td>
+                    <td class="col"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td> 
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="col"></td>
+                    <td></td>
+                    <td></td>
+                    <td class="col"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>   
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="col"></td>
+                    <td></td>
+                    <td></td>
+                    <td class="col"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>  
+                </tr>
+                <tr class="row">
+                    <td></td>
+                    <td></td>
+                    <td class="col"></td>
+                    <td></td>
+                    <td></td>
+                    <td class="col"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>  
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="col"></td>
+                    <td></td>
+                    <td></td>
+                    <td class="col"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td> 
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="col"></td>
+                    <td></td>
+                    <td></td>
+                    <td class="col"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td> 
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="col"></td>
+                    <td></td>
+                    <td></td>
+                    <td class="col"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td> 
+                </tr>
+            </table>
 
-        <select id="diffDrop" name="content" >
-            <option>Select Difficulty</option>
-            <option>Easy</option>
-            <option>Medium</option>
-            <option>Hard</option>
-            <option>Random</option>
-        </select>
-        
-        <table>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>  
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>  
-            </tr>
-            <tr class="row">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>  
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>  
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>   
-            </tr>
-            <tr class="row">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>  
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>  
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>  
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>  
-            </tr>
-        </table>
+            <div id="buttons">
+                <h2>Game Setup:</h2>
+                <select id="diffDrop" name="content" >
+                    <option>Select Difficulty</option>
+                    <option>Easy</option>
+                    <option>Medium</option>
+                    <option>Hard</option>
+                    <option>Random</option>
+                </select>
+                <button onClick="newG()" id="game">New Game</button>
+                <button onclick="clear()" id="clearAll">Clear Board</button>
+                <br>
+                <h2>Gameplay:</h2>
+                <button onmouseup="Undo()">Undo</button>
+                <button onmouseup="Redo()">Redo</button>
+            </div>
+        </div>
 
-        <button onClick="newG()" id="game">New Game</button>
-        <button onmouseup="Undo()">Undo</button>
-        <br>
-        <button onclick="clear()" id="clearAll">Clear Board</button>
-        <button onmouseup="Redo()">Redo</button>
-
-    <script src="js/logic.js"></script>     
+        <script src="js/logic.js"></script>     
     </body>
 </html>
