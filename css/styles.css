@@ -101,18 +101,20 @@ button a{
 }
 .overlay {
     position: fixed;
-    top: 0;
+    top: -50vw;
     bottom: 0;
     left: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.7);
-    transition: opacity 500ms;
-    visibility: hidden;
-    opacity: 0;
-}
-.overlay:target {
-    visibility: visible;
+    transition: visibility 0.33s, top 0.33s linear;
     opacity: 1;
+    visibility: hidden;
+}
+.overlay.active{
+    visibility: visible;
+    transition: visibility 0s, top 0.33s linear;
+    z-index: 5;
+    top: 0;
 }
 
 .popup {

@@ -157,7 +157,7 @@ function selectDiff(diff) {
                 drawBoard(board);
                 })
         .catch(error => {console.log("")})
-}    
+}
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -181,4 +181,13 @@ function Undo(){
 }
 function Redo(){
     document.execCommand("redo", false, null)
+}
+
+function openModal(){
+    //document.getElementById("selectLevel").style.display = "block"
+    document.getElementById("selectLevel").classList.add("active")
+}
+function closeModal(){
+    //document.getElementById("selectLevel").style.display = "none"
+    document.getElementById("selectLevel").classList.remove("active")
 }
