@@ -1,3 +1,6 @@
+* {
+    box-sizing: border-box;
+}
 body{
     text-align: center;
 }
@@ -30,7 +33,7 @@ table{
 }
 td{
     width: 1.2em;
-    height: 1.2em;
+    height: 1.7em;
     padding: 1%;
     font-size:3vw;
     text-align: center;
@@ -84,11 +87,134 @@ button{
     box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
     transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
     transition-property: color, background-color, border-color;
+    width: 100%;
 }
 button:hover{
     background-color: #f3f4f6;
     border-color: #1b1f2326;
     transition-duration: 0.1s;
+}
+button a{
+    text-decoration: none;
+    color: #24292e;
+    display: block;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    display: grid;
+    gap: 5%;
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    height: 35%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+.popup .close {
+    width: 100%;
+    justify-content: flex-end;
+    display: flex;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+.popup .close:hover {
+    color: black;
+}
+.popup .content {
+    max-height: 30%;
+    overflow: auto;
+}
+.switches-container {
+    --switches-bg-color: gray;
+    --switches-label-color: white ;
+    --switch-bg-color: white;
+    --switch-text-color: gray ;
+    width: 16rem;
+    position: relative;
+    display: flex;
+    padding: 0;
+    position: relative;
+    background: var(--switches-bg-color);
+    line-height: 3rem;
+    border-radius: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+.switches-container div{
+    cursor: pointer;
+}
+.switches-container input {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+}
+.switches-container label {
+    width: 50%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    cursor: pointer;
+    color: var(--switches-label-color);
+}
+.switch-wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    padding: 0.15rem;
+    z-index: 3;
+    transition: transform .5s cubic-bezier(.77, 0, .175, 1);
+}
+.switch {
+    border-radius: 3rem;
+    background: var(--switch-bg-color);
+    height: 100%;
+}
+.switch div {
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    display: block;
+    color: var(--switch-text-color) ;
+    transition: opacity .2s cubic-bezier(.77, 0, .175, 1) .125s;
+    will-change: opacity;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.switches-container input:nth-of-type(1):checked~.switch-wrapper {
+    transform: translateX(0%);
+}
+.switches-container input:nth-of-type(2):checked~.switch-wrapper {
+    transform: translateX(100%);
+}
+.switches-container input:nth-of-type(1):checked~.switch-wrapper .switch div:nth-of-type(1) {
+    opacity: 1;
+}
+.switches-container input:nth-of-type(2):checked~.switch-wrapper .switch div:nth-of-type(2) {
+    opacity: 1;
 }
 @media screen and (max-width:1300px) and (orientation:portrait){
     body{
@@ -135,5 +261,21 @@ button:hover{
         width:49.75%;
         height:15vw;
         font-size:5vw;
+    }
+    .popup{
+        width: 80%;
+        height: 70%;
+    }
+    .popup .close{
+        font-size: 10vw;
+    }
+    .popup button{
+        width: 90%;
+    }
+    .switches-container{
+        width: 90%;
+        line-height: 7rem;
+        font-size: 4vw;
+        margin-bottom: 3vw;
     }
 }

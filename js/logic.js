@@ -1,6 +1,16 @@
 var rows = document.getElementsByTagName("tr");
 var input = document.getElementsByTagName('td');
 
+var switchMistakes = document.getElementById("switches-container")
+var showMistakes = document.getElementsByClassName("switches-container")[0].querySelectorAll('input')[0]
+var showMistakesButton = document.getElementById("showMistakesButton")
+
+var mistakes = true
+
+switchMistakes.addEventListener("click", () => {
+    mistakes = showMistakes.checked
+})
+
 function drawBoard(board){
     for(let i=0; i<rows.length; i++){
         for(let j=0; j<rows.length; j++){
@@ -130,60 +140,28 @@ function drawBoard(board){
     }
 
     for(r=0; r<81; r++){
-        input2 = document.getElementsByName('num')[r];
-        input2.addEventListener('blur', check, false);
-        input2.addEventListener('blur', rules, false);
+        cell = document.getElementsByName('num')[r];
+        cell.addEventListener('blur', check, false);
+        if (mistakes){
+            cell.addEventListener('blur', rules, false);
+        }
     }
-}
-   
-var sel = document.getElementById('diffDrop').children;
-document.getElementById('diffDrop').addEventListener("change", seli);
-function seli() {
-    if(sel[0].selected == true){
-        fetch("https://sugoku.onrender.com/board")
-        .then(async response => {let wait = (await response.json()); 
-                alert("Choose level"); 
-                let board = wait.board;
-                drawBoard(board);
-                })
-        .catch(error => {console.log("")})    }
-    
-    if(sel[1].selected == true){
-        fetch("https://sugoku.onrender.com/board?difficulty=easy")
-        .then(async response => {let wait = (await response.json()); 
-                alert("Easy Level - Let's play"); 
-                let board = wait.board;
-                drawBoard(board);
-                })
-        .catch(error => {console.log("")})    }
-    
-    if(sel[2].selected == true){
-        fetch("https://sugoku.onrender.com/board?difficulty=medium")
-        .then(async response => {let wait = (await response.json()); 
-                alert("Medium Level - Let's play"); 
-                let board = wait.board;
-                drawBoard(board);
-                })
-        .catch(error => {console.log("")})    }
 
-    if(sel[3].selected == true){
-        fetch("https://sugoku.onrender.com/board?difficulty=hard")
+}
+
+function selectDiff(diff) {
+    fetch("https://sugoku.onrender.com/board?difficulty=" + diff)
         .then(async response => {let wait = (await response.json()); 
-                alert("Hard Level - Let's play"); 
+                alert(capitalizeFirstLetter(diff) + " Level - Let's play"); 
                 let board = wait.board;
                 drawBoard(board);
                 })
-        .catch(error => {console.log("")})    }
-    
-    if(sel[4].selected == true){
-        fetch("https://sugoku.onrender.com/board?difficulty=random")
-        .then(async response => {let wait = (await response.json()); 
-                alert("Random Level - Let's play"); 
-                let board = wait.board;
-                drawBoard(board);
-                })
-        .catch(error => {console.log("")})    }
-        }    
+        .catch(error => {console.log("")})
+}    
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 var CA = document.getElementById('clearAll');
 CA.addEventListener('click', clear);
@@ -194,10 +172,8 @@ function clear(){
     alert("Board Cleared. Select Level")
 }
 
-var NG = document.getElementById('game');
-NG.addEventListener('click', newG());
-function newG(){
-    seli();
+function newG(diff){
+    selectDiff(diff);
 }
 
 function Undo(){

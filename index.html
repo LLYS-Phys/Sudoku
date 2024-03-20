@@ -112,19 +112,37 @@
 
             <div id="buttons">
                 <h2>Game Setup:</h2>
-                <select id="diffDrop" name="content" >
-                    <option>Select Difficulty</option>
-                    <option>Easy</option>
-                    <option>Medium</option>
-                    <option>Hard</option>
-                    <option>Random</option>
-                </select>
-                <button onClick="newG()" id="game">New Game</button>
+                
+                <button id="game"><a href="#selectLevel">New Game</a></button>
                 <button onclick="clear()" id="clearAll">Clear Board</button>
                 <br>
                 <h2>Gameplay:</h2>
                 <button onmouseup="Undo()">Undo</button>
                 <button onmouseup="Redo()">Redo</button>
+
+                <div id="selectLevel" class="overlay">
+                    <div class="popup">
+                        <a class="close" href="#">&times;</a>
+                        
+                        <a href="#"><button onClick="newG('easy')">Easy</button></a>
+                        <a href="#"><button onClick="newG('medium')">Medium</button></a>
+                        <a href="#"><button onClick="newG('hard')">Hard</button></a>
+                        <a href="#"><button onClick="newG('random')">Random</button></a>
+
+                        <div class="switches-container" id="switches-container">
+                            <input type="radio" id="switchShow" name="switch" value="Show Mistakes" checked="checked" />
+                            <input type="radio" id="switchHide" name="switch" value="Hide Mistakes" />
+                            <label for="switchShow" id="showMistakesButton">Show Mistakes</label>
+                            <label for="switchHide">Hide Mistakes</label>
+                            <div class="switch-wrapper">
+                              <div class="switch">
+                                <div>Show Mistakes</div>
+                                <div>Hide Mistakes</div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
