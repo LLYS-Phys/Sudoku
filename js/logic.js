@@ -103,6 +103,9 @@ function drawBoard(board){
         let mats = [mat1,mat2,mat3,mat4,mat5,mat6,mat7,mat8,mat9]
 
         if(this.value == parseInt(this.value)){
+            this.addEventListener('keydown', () => {
+                this.style.color = 'rgb(102, 102, 102)'
+            })
             for (x=0; x<cols.length; x++){
                 for (y=0; y<rows.length; y++){
                     if((this.parentNode.parentNode == rows[y] && this.value == rows[y].children[x].innerText) || 
