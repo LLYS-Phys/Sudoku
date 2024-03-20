@@ -184,10 +184,10 @@ function Redo(){
 }
 
 function openModal(){
-    //document.getElementById("selectLevel").style.display = "block"
+    document.getElementById("selectLevel").children[0].classList.add("active")
     document.getElementById("selectLevel").classList.add("active")
 }
 function closeModal(){
-    //document.getElementById("selectLevel").style.display = "none"
+    document.getElementById("selectLevel").children[0].classList.remove("active")
     document.getElementById("selectLevel").classList.remove("active")
 }
