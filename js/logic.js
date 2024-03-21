@@ -122,11 +122,11 @@ function drawBoard(board){
         let mats = [mat1,mat2,mat3,mat4,mat5,mat6,mat7,mat8,mat9]
 
         if(this.value == parseInt(this.value)){
-            this.addEventListener('keydown', () => {
+            this.addEventListener('keyup', (event) => {
                 if (this.style.color == "red"){
                     this.style.color = 'rgb(102, 102, 102)'
                 }
-                if (this.value != ""){
+                if (this.value != "" && (event.which == 8 || event.which == 46)){
                     this.value = ""
                 }
             })
