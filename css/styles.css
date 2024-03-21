@@ -155,7 +155,10 @@ button a{
     text-decoration: none;
     color: #333;
 }
-.popup .close:hover {
+.popup .close a{
+    text-decoration: none;
+}
+.popup .close a:hover {
     color: black;
 }
 .popup a{

@@ -5,10 +5,11 @@ var switchMistakes = document.getElementById("switches-container")
 var showMistakes = document.getElementsByClassName("switches-container")[0].querySelectorAll('input')[0]
 var showMistakesButton = document.getElementById("showMistakesButton")
 
-var mistakes = true
+var mistakesToggle = true
+var errors = false
 
 switchMistakes.addEventListener("click", () => {
-    mistakes = showMistakes.checked
+    mistakesToggle = showMistakes.checked
 })
 
 function drawBoard(board){
@@ -46,9 +47,6 @@ function drawBoard(board){
             if (input[i].children[0] != undefined && input[i].children[0].value != ""){
                 board[row][col] = parseInt(input[i].children[0].value)
             }
-            else{
-                board[row][col] = 0
-            }
         }
 
         counter = 0
@@ -59,12 +57,32 @@ function drawBoard(board){
                 }
             }
         }
-
         if (counter==0){
-            alert("Congratulations!")
+            errors = false
+            checkWin()
+            if (errors==false){
+                alert("Congratulations!")
+                let inputs = document.querySelectorAll("input[type=number]")
+                inputs.forEach(function(input){
+                    input.disabled = true
+                })
+            }
+            else{
+                alert("You have errors!")
+            }
         }
+    }
 
-        // console.log(board)
+    function checkWin(){
+        let findDuplicates = arr => arr.filter((item, index) => arr.indexOf(item) !== index)   
+        let duplicates = []
+
+        for (r=0; r<9; r++){
+            duplicates.push(findDuplicates(board[r]))
+            if (duplicates[r].length > 0){
+                errors = true
+            }
+        }
     }
 
     function rules(){
@@ -112,27 +130,30 @@ function drawBoard(board){
                         (rows[y].children[x].innerText == 0 && this.parentNode.parentNode == rows[y] && this.parentNode !== rows[y].children[x] && this.value == rows[y].children[x].children[0].value)){
                             this.style.color = 'red';
                             alert("You have duplicate values in row " + (y+1).toString())
+                            errors = true
                             return
                         }
                     else if((cols[x].includes(this.parentNode) && this.value == cols[x][y].innerText) ||
                         (cols[x][y].innerText == 0 && cols[x].includes(this.parentNode) && this.parentNode !== cols[x][y] && this.value == cols[x][y].children[0].value)){
-                        this.style.color = 'red';
-                        alert("You have duplicate values in column " + (x+1).toString())
-                        return
+                            this.style.color = 'red';
+                            alert("You have duplicate values in column " + (x+1).toString())
+                            errors = true
+                            return
                     }
                     else if((mats[x].includes(this.parentNode) && this.value == mats[x][y].innerText) || 
                         (mats[x][y].innerText == 0 && mats[x].includes(this.parentNode) && this.parentNode !== mats[x][y] && this.value == mats[x][y].children[0].value)){
-                        this.style.color = 'red';
-                        let number_namings = ["1st", "2nd", "3rd", "th"]
-                        let number = ""
-                        if (x<3){
-                            number = number_namings[x]
-                        }
-                        else{
-                            number = (x+1).toString() + number_namings[3]
-                        }
-                        alert("You have duplicate values in the " + number + " 3x3 range")
-                        return
+                            this.style.color = 'red';
+                            let number_namings = ["1st", "2nd", "3rd", "th"]
+                            let number = ""
+                            if (x<3){
+                                number = number_namings[x]
+                            }
+                            else{
+                                number = (x+1).toString() + number_namings[3]
+                            }
+                            alert("You have duplicate values in the " + number + " 3x3 range")
+                            errors = true
+                            return
                     }
                     else{
                         this.style.color = 'rgb(102, 102, 102)'
@@ -145,7 +166,7 @@ function drawBoard(board){
     for(r=0; r<81; r++){
         cell = document.getElementsByName('num')[r];
         cell.addEventListener('blur', check, false);
-        if (mistakes){
+        if (mistakesToggle){
             cell.addEventListener('blur', rules, false);
         }
     }
@@ -172,7 +193,6 @@ function clear(){
     for(i=0; i<81; i++){
         input[i].innerText = "";
     }
-    alert("Board Cleared. Select Level")
 }
 
 function newG(diff){
