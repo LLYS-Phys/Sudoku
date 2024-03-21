@@ -123,7 +123,12 @@ function drawBoard(board){
 
         if(this.value == parseInt(this.value)){
             this.addEventListener('keydown', () => {
-                this.style.color = 'rgb(102, 102, 102)'
+                if (this.style.color == "red"){
+                    this.style.color = 'rgb(102, 102, 102)'
+                }
+                if (this.value != ""){
+                    this.value = ""
+                }
             })
             for (x=0; x<cols.length; x++){
                 for (y=0; y<rows.length; y++){
