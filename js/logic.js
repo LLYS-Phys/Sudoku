@@ -187,12 +187,13 @@ function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-var CA = document.getElementById('clearAll');
-CA.addEventListener('click', clear);
-function clear(){
-    for(i=0; i<81; i++){
-        input[i].innerText = "";
-    }
+var CA = document.getElementById('resetBoard');
+CA.addEventListener('click', reset);
+function reset(){
+    let inputs = document.querySelectorAll("input[type=number]")
+    inputs.forEach(function(input){
+        input.value = "";
+    })
 }
 
 function newG(diff){
