@@ -166,9 +166,9 @@ function drawBoard(board){
 
     for(r=0; r<81; r++){
         cell = document.getElementsByName('num')[r];
-        cell.addEventListener('keydown', check, false);
+        cell.addEventListener('input', check, false);
         if (mistakesToggle){
-            cell.addEventListener('keydown', rules, false);
+            cell.addEventListener('input', rules, false);
         }
     }
 
