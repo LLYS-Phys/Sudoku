@@ -118,9 +118,17 @@
                 <button id="game"><a onClick="openModal()" href="#selectLevel">New Game</a></button>
                 <button id="resetBoard">Reset Board</button>
                 <br>
-                <h2>Gameplay:</h2>
-                <button onmouseup="Undo()">Undo</button>
-                <button onmouseup="Redo()">Redo</button>
+                <button id="gameplay-toggle" onClick="gameplayToggle()"><span id="pipe">Show</span> Gameplay Instructions</button>
+                <div class="gameplay-container inactive" id="gameplay-container">
+                    <h2 id="gameplayTitle">Gameplay:</h2>
+                    <ul id="gameplay">
+                        <li>Click New Game to select a difficulty level and whether you would like to be notified for any mistakes</li>
+                        <li>Click Reset Board to restart your current board</li>
+                        <li>Click on any free cell to enter the number you think should be there</li>
+                        <li>Click on any cell that you have already filled to edit the number in it (if you click away, your previously entered number would remain there)</li>
+                        <li>Double click on any cell that you have filled with a number to delete that number</li>
+                    </ul>
+                </div>
 
                 <div id="selectLevel" class="overlay">
                     <div class="popup">

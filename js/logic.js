@@ -250,11 +250,29 @@ function newG(diff){
     selectDiff(diff);
 }
 
-function Undo(){
-    document.execCommand("undo", false, null)
-}
-function Redo(){
-    document.execCommand("redo", false, null)
+function gameplayToggle(){
+    let container = document.getElementById("gameplay-container")
+    let toggle = document.getElementById("pipe")
+    let el1 = document.getElementById("gameplayTitle")
+    let el2 = document.getElementById("gameplay")
+
+
+    if (container.classList.contains('active')){
+        container.classList.add('inactive')
+        container.classList.remove('active')
+        toggle.innerText="Show"
+    }
+    else{
+        container.classList.add('active')
+        container.classList.remove('inactive')
+        toggle.innerText="Hide"
+        setTimeout(() => {
+            window.scrollBy({
+                top: 1000,
+                behavior: "smooth",
+            });
+        }, 80);
+    }
 }
 
 function openModal(){

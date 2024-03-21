@@ -30,6 +30,43 @@ h1{
     margin-right: 3%;
     height: 100%;
 }
+#buttons h2{
+    margin: 0;
+}
+#gameplay-toggle{
+    display: none;
+}
+#gameplay{
+    margin: 0;
+    padding: 0;
+}
+#gameplay li{
+    text-align: justify;
+    padding: 2% 3%;
+    list-style: none;
+    display: flex;
+}
+#gameplay li:before{
+    padding-right: 5%;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+}
+#gameplay li:nth-child(1)::before{
+    content: "\2460";
+}
+#gameplay li:nth-child(2)::before{
+    content: "\2461";
+}
+#gameplay li:nth-child(3)::before{
+    content: "\2462";
+}
+#gameplay li:nth-child(4)::before{
+    content: "\2463";
+}
+#gameplay li:nth-child(5)::before{
+    content: "\2464";
+}
 table, td{
     border: 1px solid black;
     border-spacing:0;
@@ -275,6 +312,34 @@ button a{
         width: 100%;
         margin: 0;
         height: fit-content;
+    }
+    #gameplay-toggle{
+        display: block;
+        width: 100%;
+    }
+    .gameplay-container{
+        transition: max-height 0.5s linear;
+    }
+    .gameplay-container.inactive{
+        max-height: 0;
+        overflow: hidden;
+    }
+    .gameplay-container.active{
+        max-height: 100vh;
+        overflow: auto;
+        transition: max-height 0.1s linear;
+    }
+    #gameplay{
+        font-size: 5vw;
+        margin-bottom: 5vw;
+    }
+    #buttons #gameplayTitle{
+        display: block;
+        font-size: 10vw;
+        margin: 5vw;
+    }
+    #gameplay li:before{
+        font-size: 10vw;
     }
     #diffDrop{
         width:100%;
