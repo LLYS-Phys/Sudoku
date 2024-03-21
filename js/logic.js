@@ -253,9 +253,6 @@ function newG(diff){
 function gameplayToggle(){
     let container = document.getElementById("gameplay-container")
     let toggle = document.getElementById("pipe")
-    let el1 = document.getElementById("gameplayTitle")
-    let el2 = document.getElementById("gameplay")
-
 
     if (container.classList.contains('active')){
         container.classList.add('inactive')
@@ -268,7 +265,7 @@ function gameplayToggle(){
         toggle.innerText="Hide"
         setTimeout(() => {
             window.scrollBy({
-                top: 1000,
+                top: 10000,
                 behavior: "smooth",
             });
         }, 100);

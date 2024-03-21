@@ -327,11 +327,11 @@ button a{
     .gameplay-container.active{
         max-height: 100vh;
         overflow: auto;
-        transition: max-height 0.1s linear;
+        transition: max-height 0.05s linear;
     }
     #gameplay{
         font-size: 5vw;
-        margin-bottom: 5vw;
+        margin-bottom: 15vw;
     }
     #buttons #gameplayTitle{
         display: block;
