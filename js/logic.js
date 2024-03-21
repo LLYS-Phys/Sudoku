@@ -271,7 +271,7 @@ function gameplayToggle(){
                 top: 1000,
                 behavior: "smooth",
             });
-        }, 80);
+        }, 100);
     }
 }
 
