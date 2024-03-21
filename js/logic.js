@@ -8,6 +8,8 @@ var showMistakesButton = document.getElementById("showMistakesButton")
 var mistakesToggle = true
 var errors = false
 
+var counter = 0
+
 switchMistakes.addEventListener("click", () => {
     mistakesToggle = showMistakes.checked
 })
@@ -33,8 +35,20 @@ function drawBoard(board){
         }
     }
 
+    function focus(){
+        this.classList.add('active')
+    }
+    function unfocus(){
+        this.classList.remove('active')
+    }
+
     function check(){
         this.blur()
+        this.addEventListener('keyup', (event) => {
+            if (event.which == 8 || event.which == 46){
+                check()
+            }
+        })
         if(this.value == parseInt(this.value)){
             if(this.value < 1 || this.value > 9){
                 this.value = "";
@@ -48,6 +62,9 @@ function drawBoard(board){
             if (input[i].children[0] != undefined && input[i].children[0].value != ""){
                 board[row][col] = parseInt(input[i].children[0].value)
             }
+            else if (input[i].children[0] != undefined && input[i].children[0].value == ""){
+                board[row][col] = 0
+            }
         }
 
         counter = 0
@@ -58,6 +75,9 @@ function drawBoard(board){
                 }
             }
         }
+
+        console.log(board)
+        console.log(counter)
         if (counter==0){
             errors = false
             checkWin()
@@ -66,6 +86,10 @@ function drawBoard(board){
                 let inputs = document.querySelectorAll("input[type=number]")
                 inputs.forEach(function(input){
                     input.disabled = true
+                    input.style.color = "green"
+                    input.style.fontWeight = "bold"
+                    resetBoard.disabled = true
+                    resetBoard.classList.add('disabled')
                 })
             }
             else{
@@ -172,6 +196,8 @@ function drawBoard(board){
 
     for(r=0; r<81; r++){
         cell = document.getElementsByName('num')[r];
+        cell.addEventListener('focus', focus, false)
+        cell.addEventListener('blur', unfocus, false)
         cell.addEventListener('input', check, false);
         if (mistakesToggle){
             cell.addEventListener('input', rules, false);
@@ -194,8 +220,8 @@ function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-var CA = document.getElementById('resetBoard');
-CA.addEventListener('click', reset);
+var resetBoard = document.getElementById('resetBoard');
+resetBoard.addEventListener('click', reset);
 function reset(){
     let inputs = document.querySelectorAll("input[type=number]")
     inputs.forEach(function(input){
