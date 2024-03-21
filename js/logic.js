@@ -9,6 +9,8 @@ var mistakesToggle = true
 var errors = false
 
 var counter = 0
+var tempValue
+var clear = false
 
 switchMistakes.addEventListener("click", () => {
     mistakesToggle = showMistakes.checked
@@ -37,9 +39,25 @@ function drawBoard(board){
 
     function focus(){
         this.classList.add('active')
+        tempValue = this.valueAsNumber
+        this.value = ""
     }
     function unfocus(){
         this.classList.remove('active')
+        if (clear == false){
+            if (this.value == ""){
+                this.value = tempValue
+            }
+        }
+        else{
+            this.value = ""
+            clear = false
+        }
+    }
+
+    function clearField(){
+        clear = true
+        this.blur()
     }
 
     function check(){
@@ -76,8 +94,6 @@ function drawBoard(board){
             }
         }
 
-        console.log(board)
-        console.log(counter)
         if (counter==0){
             errors = false
             checkWin()
@@ -196,8 +212,9 @@ function drawBoard(board){
 
     for(r=0; r<81; r++){
         cell = document.getElementsByName('num')[r];
-        cell.addEventListener('focus', focus, false)
-        cell.addEventListener('blur', unfocus, false)
+        cell.addEventListener('focus', focus, false);
+        cell.addEventListener('blur', unfocus, false);
+        cell.addEventListener('dblclick', clearField, false)
         cell.addEventListener('input', check, false);
         if (mistakesToggle){
             cell.addEventListener('input', rules, false);
