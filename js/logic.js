@@ -128,6 +128,7 @@ function drawBoard(board){
                 }
                 if (this.value != "" && (event.which == 8 || event.which == 46)){
                     this.value = ""
+                    this.blur()
                 }
             })
             for (x=0; x<cols.length; x++){
