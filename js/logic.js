@@ -34,6 +34,7 @@ function drawBoard(board){
     }
 
     function check(){
+        this.blur()
         if(this.value == parseInt(this.value)){
             if(this.value < 1 || this.value > 9){
                 this.value = "";
@@ -165,9 +166,9 @@ function drawBoard(board){
 
     for(r=0; r<81; r++){
         cell = document.getElementsByName('num')[r];
-        cell.addEventListener('blur', check, false);
+        cell.addEventListener('keyup', check, false);
         if (mistakesToggle){
-            cell.addEventListener('blur', rules, false);
+            cell.addEventListener('keyup', rules, false);
         }
     }
 
