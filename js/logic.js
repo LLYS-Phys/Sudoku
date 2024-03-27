@@ -12,11 +12,32 @@ var counter = 0
 var tempValue
 var clear = false
 
+var resetBoard = document.getElementById('resetBoard');
+
+resetBoard.disabled = true
+resetBoard.classList.add('disabled')
+
+const beforeUnloadHandler = (event) => {
+    event.preventDefault()
+    event.returnValue = true;
+};
+
+window.addEventListener("load",function() {
+    setTimeout(function(){
+        // Hide the address bar:
+        window.scrollTo(0, 1);
+    }, 0);
+});
+
 switchMistakes.addEventListener("click", () => {
     mistakesToggle = showMistakes.checked
 })
 
 function drawBoard(board){
+    resetBoard.disabled = false
+    resetBoard.classList.remove('disabled')
+    window.addEventListener("beforeunload", beforeUnloadHandler);
+
     for(let i=0; i<rows.length; i++){
         for(let j=0; j<rows.length; j++){
             rows[i].children[j].innerHTML = board[i][j];
@@ -237,13 +258,13 @@ function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-var resetBoard = document.getElementById('resetBoard');
-resetBoard.addEventListener('click', reset);
 function reset(){
     let inputs = document.querySelectorAll("input[type=number]")
     inputs.forEach(function(input){
         input.value = "";
     })
+    document.getElementById("resetConfirmation").children[0].classList.remove("active")
+    document.getElementById("resetConfirmation").classList.remove("active")
 }
 
 function newG(diff){
@@ -279,4 +300,13 @@ function openModal(){
 function closeModal(){
     document.getElementById("selectLevel").children[0].classList.remove("active")
     document.getElementById("selectLevel").classList.remove("active")
+}
+
+function openConfirmation(){
+    document.getElementById("resetConfirmation").children[0].classList.add("active")
+    document.getElementById("resetConfirmation").classList.add("active")
+}
+function closeConfirmation(){
+    document.getElementById("resetConfirmation").children[0].classList.remove("active")
+    document.getElementById("resetConfirmation").classList.remove("active")
 }

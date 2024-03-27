@@ -304,6 +304,9 @@ button a{
     h2{
         display: none;
     }
+    h3{
+        font-size: 5vw;
+    }
     #sudoku-container{
         display: block;
     }

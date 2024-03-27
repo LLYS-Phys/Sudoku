@@ -116,7 +116,7 @@
                 <h2>Game Setup:</h2>
                 
                 <button id="game"><a onClick="openModal()" href="#selectLevel">New Game</a></button>
-                <button id="resetBoard">Reset Board</button>
+                <button id="resetBoard" onClick="openConfirmation()">Reset Board</button>
                 <br>
                 <button id="gameplay-toggle" onClick="gameplayToggle()"><span id="pipe">Show</span> Gameplay Instructions</button>
                 <div class="gameplay-container inactive" id="gameplay-container">
@@ -153,6 +153,14 @@
                               </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <div id="resetConfirmation" class="overlay">
+                    <div class="popup">
+                        <h3>Are you sure you want to reset the board?</h3>
+                        <a href="#"><button onClick="reset()">Yes</button></a>
+                        <a href="#"><button onClick="closeConfirmation()">No</button></a>
                     </div>
                 </div>
             </div>
