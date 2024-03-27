@@ -114,11 +114,10 @@
 
             <div id="buttons">
                 <h2>Game Setup:</h2>
-                
-                <button id="game"><a onClick="openModal()" href="#selectLevel">New Game</a></button>
-                <button id="resetBoard" onClick="openConfirmation()">Reset Board</button>
+                <button id="game" class="button" onClick="openModal()">New Game</button>
+                <button id="resetBoard" class="button" onClick="openConfirmation()">Reset Board</button>
                 <br>
-                <button id="gameplay-toggle" onClick="gameplayToggle()"><span id="pipe">Show</span> Gameplay Instructions</button>
+                <button id="gameplay-toggle" class="button" onClick="gameplayToggle()"><span id="pipe">Show</span> Gameplay Instructions</button>
                 <div class="gameplay-container inactive" id="gameplay-container">
                     <h2 id="gameplayTitle">Gameplay:</h2>
                     <ul id="gameplay">

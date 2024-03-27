@@ -62,6 +62,11 @@ function drawBoard(board){
         this.classList.add('active')
         tempValue = this.valueAsNumber
         this.value = ""
+        document.querySelectorAll(".button").forEach(function(button){
+            console.log(button)
+            button.disabled = true
+            button.classList.add('disabled')
+        })
     }
     function unfocus(){
         this.classList.remove('active')
@@ -74,6 +79,11 @@ function drawBoard(board){
             this.value = ""
             clear = false
         }
+        document.querySelectorAll(".button").forEach(function(button){
+            console.log(button)
+            button.disabled = false
+            button.classList.remove('disabled')
+        })
     }
 
     function clearField(){
