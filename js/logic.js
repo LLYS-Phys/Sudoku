@@ -12,6 +12,8 @@ var counter = 0
 var tempValue
 var clear = false
 
+var inputColor = "rgb(102, 102, 102)"
+
 var resetBoard = document.getElementById('resetBoard');
 
 resetBoard.disabled = true
@@ -28,6 +30,26 @@ window.addEventListener("load",function() {
         window.scrollTo(0, 1);
     }, 0);
 });
+
+document.querySelectorAll('.color').forEach(function(color){
+    color.addEventListener('click', function(){
+        console.log(color.id)
+        if (color.id == "gray"){
+            inputColor = "rgb(102, 102, 102)"
+            document.querySelectorAll('.color').forEach(function(color){
+                color.classList.remove('active')
+            })
+            color.classList.add('active')
+        }
+        else{
+            inputColor = color.id
+            document.querySelectorAll('.color').forEach(function(color){
+                color.classList.remove('active')
+            })
+            color.classList.add('active')
+        }
+    })
+})
 
 switchMistakes.addEventListener("click", () => {
     mistakesToggle = showMistakes.checked
@@ -195,7 +217,7 @@ function drawBoard(board){
         if(this.value == parseInt(this.value)){
             this.addEventListener('keyup', (event) => {
                 if (this.style.color == "red"){
-                    this.style.color = 'rgb(102, 102, 102)'
+                    this.style.color = inputColor
                 }
                 if (this.value != "" && (event.which == 8 || event.which == 46)){
                     this.value = ""
@@ -234,7 +256,7 @@ function drawBoard(board){
                             return
                     }
                     else{
-                        this.style.color = 'rgb(102, 102, 102)'
+                        this.style.color = inputColor
                     }
                 }
             }

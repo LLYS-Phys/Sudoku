@@ -293,6 +293,31 @@ button a{
 .switches-container input:nth-of-type(2):checked~.switch-wrapper .switch div:nth-of-type(2) {
     opacity: 1;
 }
+#colors{
+    display: flex;
+}
+#colors button{
+    height: 2rem;
+    opacity: 0.7;
+}
+#colors button.active{
+    opacity: 1;
+}
+#colors button:hover{
+    opacity: 1;
+}
+#gray{
+    background-color: rgb(102, 102, 102);
+}
+#yellow{
+    background-color: yellow;
+}
+#green{
+    background-color: green;
+}
+#blue{
+    background-color: blue;
+}
 @media screen and (max-width:1300px) and (orientation:portrait){
     body{
         padding: 2%;
@@ -390,5 +415,8 @@ button a{
         line-height: 7rem;
         font-size: 4vw;
         margin: 3vw auto;
+    }
+    #colors button{
+        height: 10vw;
     }
 }
