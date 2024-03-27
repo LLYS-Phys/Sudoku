@@ -33,7 +33,6 @@ window.addEventListener("load",function() {
 
 document.querySelectorAll('.color').forEach(function(color){
     color.addEventListener('click', function(){
-        console.log(color.id)
         if (color.id == "gray"){
             inputColor = "rgb(102, 102, 102)"
             document.querySelectorAll('.color').forEach(function(color){
@@ -85,7 +84,6 @@ function drawBoard(board){
         tempValue = this.valueAsNumber
         this.value = ""
         document.querySelectorAll(".button").forEach(function(button){
-            console.log(button)
             button.disabled = true
             button.classList.add('disabled')
         })
@@ -102,7 +100,6 @@ function drawBoard(board){
             clear = false
         }
         document.querySelectorAll(".button").forEach(function(button){
-            console.log(button)
             button.disabled = false
             button.classList.remove('disabled')
         })
