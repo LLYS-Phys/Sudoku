@@ -152,8 +152,7 @@ function drawBoard(board){
                 let inputs = document.querySelectorAll("input[type=number]")
                 inputs.forEach(function(input){
                     input.disabled = true
-                    input.style.color = "green"
-                    input.style.fontWeight = "bold"
+                    input.classList.add("solved")
                     resetBoard.disabled = true
                     resetBoard.classList.add('disabled')
                 })
@@ -329,6 +328,15 @@ function openModal(){
 function closeModal(){
     document.getElementById("selectLevel").children[0].classList.remove("active")
     document.getElementById("selectLevel").classList.remove("active")
+}
+
+function openColorChange(){
+    document.getElementById("changeColor").children[0].classList.add("active")
+    document.getElementById("changeColor").classList.add("active")
+}
+function closeColorChange(){
+    document.getElementById("changeColor").children[0].classList.remove("active")
+    document.getElementById("changeColor").classList.remove("active")
 }
 
 function openConfirmation(){

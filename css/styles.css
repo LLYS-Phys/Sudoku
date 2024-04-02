@@ -110,8 +110,11 @@ input.active{
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
 }
 #diffDrop{
     width: 100%;
@@ -318,6 +321,19 @@ button a{
 #blue{
     background-color: blue;
 }
+#color-toggle{
+    display: none;
+}
+.space{
+    display: block;
+}
+.solved{
+    color: green !important;
+    font-weight: bold;
+}
+.mobile-buttons{
+    display: none;
+}
 @media screen and (max-width:1300px) and (orientation:portrait){
     body{
         padding: 2%;
@@ -416,7 +432,21 @@ button a{
         font-size: 4vw;
         margin: 3vw auto;
     }
-    #colors button{
-        height: 10vw;
+    #colors{
+        display: none;
+    }
+    #color-toggle{
+        display: block;
+        width: 100%;
+    }
+    #changeColor button{
+        width: 100%;
+        font-weight: bold;
+    }
+    .space{
+        display: none;
+    }
+    .mobile-buttons{
+        display: flex;
     }
 }

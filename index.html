@@ -124,7 +124,20 @@
                     <button id="green" class="color"></button>
                     <button id="blue" class="color"></button>
                 </div>
-                <br>
+                <br class="space">
+                <button id="color-toggle" class="button" onClick="openColorChange()">Change Input Color</button>
+                <div id="changeColor" class="overlay">
+                    <div class="popup">
+                        <div class="close">
+                            <a onClick="closeColorChange()" href="#">&times;</a>
+                        </div>
+                        
+                        <button id="gray" class="color active" onClick="closeColorChange()">Gray</button>
+                        <button id="yellow" class="color" onClick="closeColorChange()">Yellow</button>
+                        <button id="green" class="color" onClick="closeColorChange()">Green</button>
+                        <button id="blue" class="color" onClick="closeColorChange()">Blue</button>
+                    </div>
+                </div>
                 <button id="gameplay-toggle" class="button" onClick="gameplayToggle()"><span id="pipe">Show</span> Gameplay Instructions</button>
                 <div class="gameplay-container inactive" id="gameplay-container">
                     <h2 id="gameplayTitle">Gameplay:</h2>
