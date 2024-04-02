@@ -27,7 +27,7 @@ const beforeUnloadHandler = (event) => {
 window.addEventListener("load",function() {
     setTimeout(function(){
         // Hide the address bar:
-        window.scrollTo(0, 1);
+        window.scrollTo(0, 100);
     }, 0);
 });
 
