@@ -275,6 +275,7 @@ function drawBoard(board){
 function selectDiff(diff) {
     fetch("https://sugoku.onrender.com/board?difficulty=" + diff)
         .then(async response => {let wait = (await response.json()); 
+                inputColor = "rgb(102, 102, 102)"
                 alert(capitalizeFirstLetter(diff) + " Level - Let's play"); 
                 let board = wait.board;
                 drawBoard(board);
