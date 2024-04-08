@@ -350,3 +350,12 @@ function closeConfirmation(){
     document.getElementById("resetConfirmation").children[0].classList.remove("active")
     document.getElementById("resetConfirmation").classList.remove("active")
 }
+
+document.addEventListener('keydown', function(e) {
+    let keyCode = e.keyCode;
+    if (keyCode === 27) {//keycode is an Integer, not a String
+        closeModal()
+        closeColorChange()
+        closeConfirmation()
+    }
+});
