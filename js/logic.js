@@ -99,10 +99,12 @@ function drawBoard(board){
             this.value = ""
             clear = false
         }
-        document.querySelectorAll(".button").forEach(function(button){
-            button.disabled = false
-            button.classList.remove('disabled')
-        })
+        setTimeout(() => {
+            document.querySelectorAll(".button").forEach(function(button){
+                button.disabled = false
+                button.classList.remove('disabled')
+            })
+        }, 200);
     }
 
     function clearField(){
