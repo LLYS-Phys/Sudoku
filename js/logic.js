@@ -362,7 +362,6 @@ document.addEventListener('keydown', function(e) {
 
 document.querySelectorAll(".overlay").forEach(function(overlay){
     overlay.addEventListener("click", (event) => {
-        console.dir(event.target)
         if (event.target.classList.contains("overlay")){
             closeModal()
             closeColorChange()
