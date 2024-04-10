@@ -40,6 +40,13 @@ document.querySelectorAll('.color').forEach(function(color){
             })
             color.classList.add('active')
         }
+        else if (color.id == "yellow"){
+            inputColor = "#8B8000"
+            document.querySelectorAll('.color').forEach(function(color){
+                color.classList.remove('active')
+            })
+            color.classList.add('active')
+        }
         else{
             inputColor = color.id
             document.querySelectorAll('.color').forEach(function(color){
