@@ -94,7 +94,7 @@ input{
     border:none;
     font-size:3vw;
     text-align: center;
-    color:rgb(102, 102, 102);
+    color:#666666;
     font-style:italic;
     background-color: transparent;
     transition: background-color 0.5s;
@@ -310,20 +310,23 @@ button a{
 #colors button.active{
     opacity: 1;
 }
+#colors_mobile button.active{
+    opacity: 1;
+}
 #colors button:hover{
     opacity: 1;
 }
 #gray{
-    background-color: rgb(102, 102, 102);
+    background-color: #666666;
 }
 #yellow{
     background-color: #8B8000;
 }
 #green{
-    background-color: green;
+    background-color: #008000;
 }
 #blue{
-    background-color: blue;
+    background-color: #0000FF;
 }
 #color-toggle{
     display: none;
@@ -332,7 +335,7 @@ button a{
     display: block;
 }
 .solved{
-    color: green !important;
+    color: #008000 !important;
     font-weight: bold;
 }
 .mobile-buttons{

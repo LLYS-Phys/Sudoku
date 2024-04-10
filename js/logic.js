@@ -12,7 +12,7 @@ var counter = 0
 var tempValue
 var clear = false
 
-var inputColor = "rgb(102, 102, 102)"
+var inputColor = "#666666"
 
 var resetBoard = document.getElementById('resetBoard');
 
@@ -34,7 +34,7 @@ window.addEventListener("load",function() {
 document.querySelectorAll('.color').forEach(function(color){
     color.addEventListener('click', function(){
         if (color.id == "gray"){
-            inputColor = "rgb(102, 102, 102)"
+            inputColor = "#666666"
             document.querySelectorAll('.color').forEach(function(color){
                 color.classList.remove('active')
             })
@@ -47,23 +47,61 @@ document.querySelectorAll('.color').forEach(function(color){
             })
             color.classList.add('active')
         }
-        else{
-            inputColor = color.id
+        else if (color.id == "green"){
+            inputColor = "#008000"
             document.querySelectorAll('.color').forEach(function(color){
                 color.classList.remove('active')
             })
             color.classList.add('active')
         }
+        else{
+            inputColor = "#0000FF"
+            document.querySelectorAll('.color').forEach(function(color){
+                color.classList.remove('active')
+            })
+            color.classList.add('active')
+        }
+
+        document.querySelector("#color").value = inputColor
+        document.querySelector("#color_mobile").value = inputColor
     })
 })
 
 document.querySelector("#color").addEventListener("change", () => {
     inputColor = document.querySelector("#color").value
+    hoverColors()
 })
 
 document.querySelector("#color_mobile").addEventListener("change", () => {
     inputColor = document.querySelector("#color_mobile").value
+    hoverColors()
 })
+
+function hoverColors(){
+    let colors = ["#666666", "#8B8000", "#008000", "#0000FF"]
+    document.querySelectorAll('.color').forEach(function(color){
+        color.classList.remove('active')
+    })
+    colors.forEach(function(color){
+        if (inputColor == color){
+            document.querySelectorAll('.color').forEach(function(color){
+                color.classList.remove('active')
+            })
+            if (color == colors[0]){
+                document.querySelectorAll('.color')[0].classList.add("active")
+            }
+            else if (color == colors[1]){
+                document.querySelectorAll('.color')[1].classList.add("active")
+            }
+            else if (color == colors[2]){
+                document.querySelectorAll('.color')[2].classList.add("active")
+            }
+            else if (color == colors[3]){
+                document.querySelectorAll('.color')[3].classList.add("active")
+            }
+        }
+    })
+}
 
 switchMistakes.addEventListener("click", () => {
     mistakesToggle = showMistakes.checked
@@ -292,9 +330,9 @@ function drawBoard(board){
 function selectDiff(diff) {
     fetch("https://sugoku.onrender.com/board?difficulty=" + diff)
         .then(async response => {let wait = (await response.json()); 
-                inputColor = "rgb(102, 102, 102)"
-                document.querySelector("#color").value = "rgb(102, 102, 102)"
-                document.querySelector("#color_mobile").value = "rgb(102, 102, 102)"
+                inputColor = "#666666"
+                document.querySelector("#color").value = "#666666"
+                document.querySelector("#color_mobile").value = "#666666"
                 alert(capitalizeFirstLetter(diff) + " Level - Let's play"); 
                 let board = wait.board;
                 drawBoard(board);
