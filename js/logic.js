@@ -50,6 +50,14 @@ document.querySelectorAll('.color').forEach(function(color){
     })
 })
 
+document.querySelector("#color").addEventListener("change", () => {
+    inputColor = document.querySelector("#color").value
+})
+
+document.querySelector("#color_mobile").addEventListener("change", () => {
+    inputColor = document.querySelector("#color_mobile").value
+})
+
 switchMistakes.addEventListener("click", () => {
     mistakesToggle = showMistakes.checked
 })
@@ -278,6 +286,8 @@ function selectDiff(diff) {
     fetch("https://sugoku.onrender.com/board?difficulty=" + diff)
         .then(async response => {let wait = (await response.json()); 
                 inputColor = "rgb(102, 102, 102)"
+                document.querySelector("#color").value = "rgb(102, 102, 102)"
+                document.querySelector("#color_mobile").value = "rgb(102, 102, 102)"
                 alert(capitalizeFirstLetter(diff) + " Level - Let's play"); 
                 let board = wait.board;
                 drawBoard(board);

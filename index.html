@@ -120,9 +120,13 @@
                 <h2>Input Color:</h2>
                 <div id="colors">
                     <button id="gray" class="color active"></button>
-                    <button id="yellow" class="color"></button>
+                    <button id="#8B8000" class="color"></button>
                     <button id="green" class="color"></button>
                     <button id="blue" class="color"></button>
+                </div>
+                <h2>Custom Input Color:</h2>
+                <div id="colors">
+                    <input type="color" id="color" name="color" value="rgb(102, 102, 102)">
                 </div>
                 <br class="space">
                 <button id="color-toggle" class="button" onClick="openColorChange()">Change Input Color</button>
@@ -131,11 +135,12 @@
                         <div class="close">
                             <a onClick="closeColorChange()" href="#">&times;</a>
                         </div>
-                        
                         <button id="gray" class="color active" onClick="closeColorChange()">Gray</button>
-                        <button id="yellow" class="color" onClick="closeColorChange()">Yellow</button>
+                        <button id="#8B8000" class="color" onClick="closeColorChange()">Yellow</button>
                         <button id="green" class="color" onClick="closeColorChange()">Green</button>
                         <button id="blue" class="color" onClick="closeColorChange()">Blue</button>
+                        <h3>Custom Input Color:</h3>
+                        <input type="color" id="color_mobile" name="color" value="rgb(102, 102, 102)">
                     </div>
                 </div>
                 <button id="gameplay-toggle" class="button" onClick="gameplayToggle()"><span id="pipe">Show</span> Gameplay Instructions</button>
