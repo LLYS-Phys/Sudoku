@@ -336,8 +336,7 @@ function selectDiff(diff) {
                 document.querySelector("#color_mobile").value = "#666666"
                 let board = wait.board
                 if (board){
-                    document.getElementById("loader").classList.remove("active")
-                    document.getElementById("selectLevel").classList.remove("active")
+                    document.getElementById("loader-overlay").classList.remove("active")
                     alert(capitalizeFirstLetter(diff) + " Level - Let's play"); 
                     drawBoard(board);
                 }
@@ -366,8 +365,7 @@ function reset(){
 
 function newG(diff){
     document.getElementById("selectLevel").children[0].classList.remove("active")
-    console.log(document.getElementById("loader"))
-    document.getElementById("loader").classList.add("active")
+    document.getElementById("loader-overlay").classList.add("active")
     selectDiff(diff);
 }
 
@@ -397,7 +395,7 @@ function openModal(){
     document.getElementById("selectLevel").children[0].classList.add("active")
     document.getElementById("selectLevel").classList.add("active")
 }
-function closeModalFromDom(){
+function closeModal(){
     document.getElementById("selectLevel").children[0].classList.remove("active")
     document.getElementById("selectLevel").classList.remove("active")
 }
@@ -423,7 +421,7 @@ function closeConfirmation(){
 document.addEventListener('keydown', function(e) {
     let keyCode = e.keyCode;
     if (keyCode === 27) {//keycode is an Integer, not a String
-        closeModalFromDom()
+        closeModal()
         closeColorChange()
         closeConfirmation()
     }
@@ -432,7 +430,7 @@ document.addEventListener('keydown', function(e) {
 document.querySelectorAll(".overlay").forEach(function(overlay){
     overlay.addEventListener("click", (event) => {
         if (event.target.classList.contains("overlay")){
-            closeModalFromDom()
+            closeModal()
             closeColorChange()
             closeConfirmation()
         }
