@@ -337,7 +337,8 @@ function selectDiff(diff) {
                 let board = wait.board
                 if (board){
                     document.getElementById("loader-overlay").classList.remove("active")
-                    alert(capitalizeFirstLetter(diff) + " Level - Let's play"); 
+                    document.getElementById("levelText").textContent = `Level: ${capitalizeFirstLetter(diff)}`
+                    // alert(capitalizeFirstLetter(diff) + " Level - Let's play"); 
                     drawBoard(board);
                 }
                 })

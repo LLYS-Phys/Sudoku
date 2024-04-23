@@ -307,6 +307,7 @@ button a{
 #colors input{
     width: 100%;
     height: 3rem;
+    cursor: pointer;
 }
 #colors button{
     height: 2rem;
