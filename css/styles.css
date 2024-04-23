@@ -347,6 +347,9 @@ button a{
 .mobile-buttons{
     display: none;
 }
+#levelText{
+    margin-bottom: 0;
+}
 .infoText{
     padding-bottom: 1rem;
 }

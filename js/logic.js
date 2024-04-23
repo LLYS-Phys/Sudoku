@@ -375,6 +375,12 @@ function gameplayToggle(){
         container.classList.add('active')
         container.classList.remove('inactive')
         toggle.innerText="Hide"
+        setTimeout(() => {
+            window.scrollBy({
+                top: 10000,
+                behavior: "smooth",
+            });
+        }, 100);
     }
 }
 
