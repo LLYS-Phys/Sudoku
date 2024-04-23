@@ -347,6 +347,9 @@ button a{
 .mobile-buttons{
     display: none;
 }
+.infoText{
+    padding-bottom: 1rem;
+}
 #loader {
     width: 10rem;
     height: 10rem;
@@ -377,8 +380,11 @@ button a{
     h1{
         font-size: 8vw;
     }
-    #levelText{
+    #levelText, .infoText{
         font-size: 4vw;
+    }
+    .infoText{
+        padding-bottom: 4vw;
     }
     h2{
         display: none;

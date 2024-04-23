@@ -24,13 +24,6 @@ const beforeUnloadHandler = (event) => {
     event.returnValue = true;
 };
 
-window.addEventListener("load",function() {
-    setTimeout(function(){
-        // Hide the address bar:
-        window.scrollTo(0, 100);
-    }, 0);
-});
-
 document.querySelectorAll('.color').forEach(function(color){
     color.addEventListener('click', function(){
         if (color.id == "gray"){
@@ -175,7 +168,7 @@ function drawBoard(board){
         if(this.value == parseInt(this.value)){
             if(this.value < 1 || this.value > 9){
                 this.value = "";
-                alert("Please use numbers between 1 and 9");
+                openInfoWindow("Please use numbers between 1 and 9")
             }
         }
 
@@ -203,7 +196,7 @@ function drawBoard(board){
             errors = false
             checkWin()
             if (errors==false){
-                alert("Congratulations!")
+                openInfoWindow("Congratulations!")
                 let inputs = document.querySelectorAll("input[type=number]")
                 inputs.forEach(function(input){
                     input.disabled = true
@@ -211,7 +204,7 @@ function drawBoard(board){
                 })
             }
             else{
-                alert("You have errors!")
+                openInfoWindow("You have errors!")
             }
         }
     }
@@ -278,14 +271,14 @@ function drawBoard(board){
                     if((this.parentNode.parentNode == rows[y] && this.value == rows[y].children[x].innerText) || 
                         (rows[y].children[x].innerText == 0 && this.parentNode.parentNode == rows[y] && this.parentNode !== rows[y].children[x] && this.value == rows[y].children[x].children[0].value)){
                             this.style.color = 'red';
-                            alert("You have duplicate values in row " + (y+1).toString())
+                            openInfoWindow("You have duplicate values in row " + (y+1).toString())
                             errors = true
                             return
                         }
                     else if((cols[x].includes(this.parentNode) && this.value == cols[x][y].innerText) ||
                         (cols[x][y].innerText == 0 && cols[x].includes(this.parentNode) && this.parentNode !== cols[x][y] && this.value == cols[x][y].children[0].value)){
                             this.style.color = 'red';
-                            alert("You have duplicate values in column " + (x+1).toString())
+                            openInfoWindow("You have duplicate values in column " + (x+1).toString())
                             errors = true
                             return
                     }
@@ -300,7 +293,7 @@ function drawBoard(board){
                             else{
                                 number = (x+1).toString() + number_namings[3]
                             }
-                            alert("You have duplicate values in the " + number + " 3x3 range")
+                            openInfoWindow("You have duplicate values in the " + number + " 3x3 range")
                             errors = true
                             return
                     }
@@ -338,11 +331,10 @@ function selectDiff(diff) {
                 if (board){
                     document.getElementById("loader-overlay").classList.remove("active")
                     document.getElementById("levelText").textContent = `Level: ${capitalizeFirstLetter(diff)}`
-                    // alert(capitalizeFirstLetter(diff) + " Level - Let's play"); 
                     drawBoard(board);
                 }
                 })
-        .catch(error => {alert("Network problem, please try again later!")})
+        .catch(error => {openInfoWindow("Network problem, please try again later!")})
 }
 
 function capitalizeFirstLetter(string) {
@@ -413,12 +405,23 @@ function closeConfirmation(){
     document.getElementById("resetConfirmation").classList.remove("active")
 }
 
+function openInfoWindow(info){
+    document.getElementById("infoScreen").children[0].classList.add("active")
+    document.getElementById("infoScreen").classList.add("active")
+    document.getElementById("infoScreen").querySelector(".infoText").textContent = `${info}`
+}
+function closeInfoWindow(){
+    document.getElementById("infoScreen").children[0].classList.remove("active")
+    document.getElementById("infoScreen").classList.remove("active")
+}
+
 document.addEventListener('keydown', function(e) {
     let keyCode = e.keyCode;
     if (keyCode === 27) {//keycode is an Integer, not a String
         closeModal()
         closeColorChange()
         closeConfirmation()
+        closeInfoWindow()
     }
 });
 
@@ -428,6 +431,7 @@ document.querySelectorAll(".overlay").forEach(function(overlay){
             closeModal()
             closeColorChange()
             closeConfirmation()
+            closeInfoWindow()
         }
     })
 })
