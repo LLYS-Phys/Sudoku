@@ -315,13 +315,15 @@ function drawBoard(board){
     }
 
     for(r=0; r<81; r++){
-        cell = document.getElementsByName('num')[r];
-        cell.addEventListener('focus', focus, false);
-        cell.addEventListener('blur', unfocus, false);
-        cell.addEventListener('dblclick', clearField, false)
-        cell.addEventListener('input', check, false);
-        if (mistakesToggle){
-            cell.addEventListener('input', rules, false);
+        let cell = document.getElementsByName('num')[r];
+        if (cell != undefined){
+            cell.addEventListener('focus', focus, false);
+            cell.addEventListener('blur', unfocus, false);
+            cell.addEventListener('dblclick', clearField, false)
+            cell.addEventListener('input', check, false);
+            if (mistakesToggle){
+                cell.addEventListener('input', rules, false);
+            }
         }
     }
 
@@ -329,15 +331,20 @@ function drawBoard(board){
 
 function selectDiff(diff) {
     fetch("https://sugoku.onrender.com/board?difficulty=" + diff)
-        .then(async response => {let wait = (await response.json()); 
+        .then(async response => {
+                let wait = (await response.json()); 
                 inputColor = "#666666"
                 document.querySelector("#color").value = "#666666"
                 document.querySelector("#color_mobile").value = "#666666"
-                alert(capitalizeFirstLetter(diff) + " Level - Let's play"); 
-                let board = wait.board;
-                drawBoard(board);
+                document.getElementById("loader-overlay").style.visibility = "visible"
+                let board = wait.board
+                if (board){
+                    document.getElementById("loader-overlay").style.visibility = "hidden"
+                    alert(capitalizeFirstLetter(diff) + " Level - Let's play"); 
+                    drawBoard(board);
+                }
                 })
-        .catch(error => {console.log("")})
+        .catch(error => {alert("Network problem, please try again later!")})
 }
 
 function capitalizeFirstLetter(string) {
