@@ -408,9 +408,13 @@ function closeConfirmation(){
 function openInfoWindow(info, additional){
     document.getElementById("infoScreen").children[0].classList.add("active")
     document.getElementById("infoScreen").classList.add("active")
-    document.getElementById("infoScreen").querySelector(".infoText").textContent = `${info}`
     if (additional != 0){
-        document.getElementById("infoScreen").querySelector(".infoPopup").innerHTML += "<p>You can delete any number you have entered by double clicking on it.</p>"
+        document.getElementById("infoScreen").querySelector(".infoPopup").innerHTML = `
+            <p class="infoText">${info}</p>
+            <p class="infoText">You can delete any number you have entered by double clicking on it.</p>`
+    }
+    else{
+        document.getElementById("infoScreen").querySelector(".infoPopup").innerHTML = `<p class="infoText">${info}</p>`
     }
 }
 function closeInfoWindow(){
