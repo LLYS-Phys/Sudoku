@@ -199,6 +199,7 @@ button a{
     position: relative;
     transition: top 0.5s linear;
     top: -100vw;
+    border-radius: 2rem;
 }
 .popup.active{
     top: 0;
@@ -347,9 +348,6 @@ button a{
 .mobile-buttons{
     display: none;
 }
-.infoText{
-    padding-bottom: 1rem;
-}
 #loader {
     width: 10rem;
     height: 10rem;
@@ -372,6 +370,19 @@ button a{
     0% { transform: rotate(0); }
     100% { transform: rotate(360deg); }
 }
+#infoScreen .close{
+    align-items: baseline;
+    justify-content: space-between;
+}
+#infoScreen .close svg{
+    height: 1.5rem;
+}
+.infoPopup{
+    padding: 3%;
+}
+#infoScreen .popup.active{
+    top: 15%;
+}
 @media screen and (max-width:1300px) and (orientation:portrait){
     body{
         padding: 2%;
@@ -382,9 +393,6 @@ button a{
     }
     .infoText{
         font-size: 4vw;
-    }
-    .infoText{
-        padding-bottom: 4vw;
     }
     h2{
         display: none;
@@ -496,5 +504,11 @@ button a{
     }
     .mobile-buttons{
         display: flex;
+    }
+    #infoScreen .close{
+        align-items: center;
+    }
+    #infoScreen .close svg{
+        height: 10vw;
     }
 }
