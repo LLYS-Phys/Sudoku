@@ -377,6 +377,9 @@ button a{
     h1{
         font-size: 8vw;
     }
+    #levelText{
+        font-size: 4vw;
+    }
     h2{
         display: none;
     }
