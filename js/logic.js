@@ -208,8 +208,6 @@ function drawBoard(board){
                 inputs.forEach(function(input){
                     input.disabled = true
                     input.classList.add("solved")
-                    resetBoard.disabled = true
-                    resetBoard.classList.add('disabled')
                 })
             }
             else{
@@ -355,6 +353,12 @@ function reset(){
     let inputs = document.querySelectorAll("input[type=number]")
     inputs.forEach(function(input){
         input.value = "";
+        input.disabled = false;
+        input.classList.remove("solved")
+        inputColor = "#666666"
+        document.querySelector("#color").value = inputColor
+        document.querySelector("#color_mobile").value = inputColor
+        hoverColors()
     })
     document.getElementById("resetConfirmation").children[0].classList.remove("active")
     document.getElementById("resetConfirmation").classList.remove("active")
