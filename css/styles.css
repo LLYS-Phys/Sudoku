@@ -363,6 +363,10 @@ button a{
         -10px -10px 3px rgba(255,255,255,0.1);
     transform-origin: 50%;
     animation: load 0.5s steps(8, end) infinite;
+    display: none;
+}
+#loader.active{
+    display: block;
 }
 @keyframes load {
     0% { transform: rotate(0); }

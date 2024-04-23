@@ -161,13 +161,13 @@
                 <div id="selectLevel" class="overlay">
                     <div class="popup">
                         <div class="close">
-                            <a onClick="closeModal()" href="#">&times;</a>
+                            <a onClick="closeModalFromDom()" href="#">&times;</a>
                         </div>
                         
-                        <a onClick="closeModal()" href="#"><button onClick="newG('easy')">Easy</button></a>
-                        <a onClick="closeModal()" href="#"><button onClick="newG('medium')">Medium</button></a>
-                        <a onClick="closeModal()" href="#"><button onClick="newG('hard')">Hard</button></a>
-                        <a onClick="closeModal()" href="#"><button onClick="newG('random')">Random</button></a>
+                        <a href="#"><button onClick="newG('easy')">Easy</button></a>
+                        <a href="#"><button onClick="newG('medium')">Medium</button></a>
+                        <a href="#"><button onClick="newG('hard')">Hard</button></a>
+                        <a href="#"><button onClick="newG('random')">Random</button></a>
 
                         <div class="switches-container" id="switches-container">
                             <input type="radio" id="switchShow" name="switch" value="Show Mistakes" checked="checked" />

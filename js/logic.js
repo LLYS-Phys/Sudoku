@@ -334,10 +334,10 @@ function selectDiff(diff) {
                 inputColor = "#666666"
                 document.querySelector("#color").value = "#666666"
                 document.querySelector("#color_mobile").value = "#666666"
-                document.getElementById("loader-overlay").style.visibility = "visible"
                 let board = wait.board
                 if (board){
-                    document.getElementById("loader-overlay").style.visibility = "hidden"
+                    document.getElementById("loader").classList.remove("active")
+                    document.getElementById("selectLevel").classList.remove("active")
                     alert(capitalizeFirstLetter(diff) + " Level - Let's play"); 
                     drawBoard(board);
                 }
@@ -365,6 +365,9 @@ function reset(){
 }
 
 function newG(diff){
+    document.getElementById("selectLevel").children[0].classList.remove("active")
+    console.log(document.getElementById("loader"))
+    document.getElementById("loader").classList.add("active")
     selectDiff(diff);
 }
 
@@ -394,7 +397,7 @@ function openModal(){
     document.getElementById("selectLevel").children[0].classList.add("active")
     document.getElementById("selectLevel").classList.add("active")
 }
-function closeModal(){
+function closeModalFromDom(){
     document.getElementById("selectLevel").children[0].classList.remove("active")
     document.getElementById("selectLevel").classList.remove("active")
 }
@@ -420,7 +423,7 @@ function closeConfirmation(){
 document.addEventListener('keydown', function(e) {
     let keyCode = e.keyCode;
     if (keyCode === 27) {//keycode is an Integer, not a String
-        closeModal()
+        closeModalFromDom()
         closeColorChange()
         closeConfirmation()
     }
@@ -429,7 +432,7 @@ document.addEventListener('keydown', function(e) {
 document.querySelectorAll(".overlay").forEach(function(overlay){
     overlay.addEventListener("click", (event) => {
         if (event.target.classList.contains("overlay")){
-            closeModal()
+            closeModalFromDom()
             closeColorChange()
             closeConfirmation()
         }
