@@ -5,4 +5,5 @@ Includes:<br>
 3. New Game and Reset Board buttons<br>
 4. Undo and Redo buttons<br>
 5. Button for toggling if mistakes should be shown to the user<br>
+6. EN and BG language support<br>
 https://llys-phys.github.io/Sudoku/
