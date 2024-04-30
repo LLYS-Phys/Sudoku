@@ -12,6 +12,9 @@ var counter = 0
 var tempValue
 var clear = false
 
+var headerTitleBg = ""
+var headerTitleEn = ""
+
 var inputColor = "#666666"
 
 var resetBoard = document.getElementById('resetBoard');
@@ -332,21 +335,13 @@ function selectDiff(diff) {
                 if (board){
                     document.getElementById("loader-overlay").classList.remove("active")
                     let bg_diff
-                    if (document.documentElement.lang == "bg"){
-                        if (diff=="easy"){
-                            bg_diff = "Лесно"
-                        }
-                        else if (diff=="medium"){
-                            bg_diff = "Средно"
-                        }
-                        else if (diff=="hard"){
-                            bg_diff = "Трудно"
-                        }
-                        else{
-                            bg_diff = "Случайно"
-                        }
-                    }
+                    if (diff=="easy"){ bg_diff = "Лесно" }
+                    else if (diff=="medium"){ bg_diff = "Средно" }
+                    else if (diff=="hard"){ bg_diff = "Трудно" }
+                    else if (diff=="random"){ bg_diff = "Случайно" }
                     document.documentElement.lang == "en" ? document.getElementById("title").textContent = `Level: ${capitalizeFirstLetter(diff)}` : document.getElementById("title").textContent = `Ниво: ${bg_diff}`
+                    headerTitleEn = `Level: ${capitalizeFirstLetter(diff)}`
+                    headerTitleBg = `Ниво: ${bg_diff}`
                     drawBoard(board);
                     resetStopwatch()
                     startStopwatch()
@@ -501,7 +496,7 @@ function textChange(){
 
     if (document.documentElement.lang === "bg"){
         document.title = "Судоку Загадки"
-        document.getElementById("title").textContent = "Судоку"
+        headerTitleBg == "" ? document.getElementById("title").textContent = "Судоку" : document.getElementById("title").textContent = headerTitleBg
         document.getElementById("gameSetup").textContent = "Настройки на играта:"
         document.getElementById("game").textContent = "Нова игра"
         document.getElementById("resetBoard").textContent = "Рестарт на игра"
@@ -534,7 +529,7 @@ function textChange(){
     }
     else{
         document.title = "Sudoku Puzzles"
-        document.getElementById("title").textContent = "Sudoku"
+        headerTitleEn == "" ? document.getElementById("title").textContent = "Sudoku" : document.getElementById("title").textContent = headerTitleEn
         document.getElementById("gameSetup").textContent = "Game Setup:"
         document.getElementById("game").textContent = "New Game"
         document.getElementById("resetBoard").textContent = "Reset Board"
