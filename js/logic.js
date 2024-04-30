@@ -346,7 +346,7 @@ function selectDiff(diff) {
                             bg_diff = "Случайно"
                         }
                     }
-                    document.documentElement.lang == "en" ? document.getElementById("title").textContent = `Sudoku - Level: ${capitalizeFirstLetter(diff)}` : document.getElementById("title").textContent = `Судоку - Ниво: ${bg_diff}`
+                    document.documentElement.lang == "en" ? document.getElementById("title").textContent = `Level: ${capitalizeFirstLetter(diff)}` : document.getElementById("title").textContent = `Ниво: ${bg_diff}`
                     drawBoard(board);
                     resetStopwatch()
                     startStopwatch()
