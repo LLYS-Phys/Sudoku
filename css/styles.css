@@ -323,16 +323,16 @@ button a{
 #colors button:hover{
     opacity: 1;
 }
-#gray{
+#gray, #grayButton{
     background-color: #666666;
 }
-#yellow{
+#yellow, #yellowButton{
     background-color: #8B8000;
 }
-#green{
+#green, #greenButton{
     background-color: #008000;
 }
-#blue{
+#blue, #blueButton{
     background-color: #0000FF;
 }
 #color-toggle{
@@ -382,6 +382,19 @@ button a{
 }
 #infoScreen .popup.active{
     top: 15%;
+}
+#title-section{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+#title-section select{
+    position: absolute;
+    right: 3rem;
+}
+.language-selector{
+    font-size: 2rem;
+    border: none;
 }
 @media screen and (max-width:1300px) and (orientation:portrait){
     body{
@@ -510,5 +523,10 @@ button a{
     }
     #infoScreen .close svg{
         height: 10vw;
+    }
+    .language-selector{
+        right: unset !important;
+        left: 2rem;
+        font-size: 3rem;
     }
 }

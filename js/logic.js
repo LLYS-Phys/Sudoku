@@ -26,21 +26,21 @@ const beforeUnloadHandler = (event) => {
 
 document.querySelectorAll('.color').forEach(function(color){
     color.addEventListener('click', function(){
-        if (color.id == "gray"){
+        if (color.id == "gray" || color.id == "grayButton"){
             inputColor = "#666666"
             document.querySelectorAll('.color').forEach(function(color){
                 color.classList.remove('active')
             })
             color.classList.add('active')
         }
-        else if (color.id == "yellow"){
+        else if (color.id == "yellow" || color.id == "yellowButton"){
             inputColor = "#8B8000"
             document.querySelectorAll('.color').forEach(function(color){
                 color.classList.remove('active')
             })
             color.classList.add('active')
         }
-        else if (color.id == "green"){
+        else if (color.id == "green" || color.id == "greenButton"){
             inputColor = "#008000"
             document.querySelectorAll('.color').forEach(function(color){
                 color.classList.remove('active')
@@ -168,7 +168,7 @@ function drawBoard(board){
         if(this.value == parseInt(this.value)){
             if(this.value < 1 || this.value > 9){
                 this.value = "";
-                openInfoWindow("Please use numbers between 1 and 9", 0)
+                document.documentElement.lang == "en" ? openInfoWindow("Please use numbers between 1 and 9", 0) : openInfoWindow("Моля използвай числа между 1 и 9", 0)
             }
         }
 
@@ -196,7 +196,7 @@ function drawBoard(board){
             errors = false
             checkWin()
             if (errors==false){
-                openInfoWindow("Congratulations!", 0)
+                document.documentElement.lang == "en" ? openInfoWindow("Congratulations!", 0) : openInfoWindow("Поздравления!", 0)
                 let inputs = document.querySelectorAll("input[type=number]")
                 inputs.forEach(function(input){
                     input.disabled = true
@@ -204,7 +204,7 @@ function drawBoard(board){
                 })
             }
             else{
-                openInfoWindow("You have errors!", 1)
+                document.documentElement.lang == "en" ? openInfoWindow("You have errors!", 1) : openInfoWindow("Имате грешки!", 1)
             }
         }
     }
@@ -271,14 +271,14 @@ function drawBoard(board){
                     if((this.parentNode.parentNode == rows[y] && this.value == rows[y].children[x].innerText) || 
                         (rows[y].children[x].innerText == 0 && this.parentNode.parentNode == rows[y] && this.parentNode !== rows[y].children[x] && this.value == rows[y].children[x].children[0].value)){
                             this.style.color = 'red';
-                            openInfoWindow("You have duplicate values in row " + (y+1).toString(), 1)
+                            document.documentElement.lang == "en" ? openInfoWindow("You have duplicate values in row " + (y+1).toString(), 1) : openInfoWindow("Имате грешка на ред " + (y+1).toString(), 1)
                             errors = true
                             return
                         }
                     else if((cols[x].includes(this.parentNode) && this.value == cols[x][y].innerText) ||
                         (cols[x][y].innerText == 0 && cols[x].includes(this.parentNode) && this.parentNode !== cols[x][y] && this.value == cols[x][y].children[0].value)){
                             this.style.color = 'red';
-                            openInfoWindow("You have duplicate values in column " + (x+1).toString(), 1)
+                            document.documentElement.lang == "en" ? openInfoWindow("You have duplicate values in column " + (x+1).toString(), 1) : openInfoWindow("Имате грешка в колона " + (x+1).toString(), 1)
                             errors = true
                             return
                     }
@@ -293,7 +293,7 @@ function drawBoard(board){
                             else{
                                 number = (x+1).toString() + number_namings[3]
                             }
-                            openInfoWindow("You have duplicate values in the " + number + " 3x3 range", 1)
+                            document.documentElement.lang == "en" ? openInfoWindow("You have duplicate values in the " + number + " 3x3 range", 1) :  openInfoWindow("Имате грешка в квадрат " + (x+1).toString(), 1)
                             errors = true
                             return
                     }
@@ -330,11 +330,26 @@ function selectDiff(diff) {
                 let board = wait.board
                 if (board){
                     document.getElementById("loader-overlay").classList.remove("active")
-                    document.getElementById("title").textContent = `Sudoku - Level: ${capitalizeFirstLetter(diff)}`
+                    let bg_diff
+                    if (document.documentElement.lang == "bg"){
+                        if (diff=="easy"){
+                            bg_diff = "Лесно"
+                        }
+                        else if (diff=="medium"){
+                            bg_diff = "Средно"
+                        }
+                        else if (diff=="hard"){
+                            bg_diff = "Трудно"
+                        }
+                        else{
+                            bg_diff = "Случайно"
+                        }
+                    }
+                    document.documentElement.lang == "en" ? document.getElementById("title").textContent = `Sudoku - Level: ${capitalizeFirstLetter(diff)}` : document.getElementById("title").textContent = `Судоку - Ниво: ${bg_diff}`
                     drawBoard(board);
                 }
                 })
-        .catch(error => {openInfoWindow("Network problem, please try again later!", 0)})
+        .catch(error => {document.documentElement.lang == "en" ? openInfoWindow("Network problem, please try again later!", 0) : openInfoWindow("Проблеми с връзката, моля опитайте по-късно!", 0)})
 }
 
 function capitalizeFirstLetter(string) {
@@ -415,9 +430,16 @@ function openInfoWindow(info, additional){
     document.getElementById("infoScreen").children[0].classList.add("active")
     document.getElementById("infoScreen").classList.add("active")
     if (additional != 0){
-        document.getElementById("infoScreen").querySelector(".infoPopup").innerHTML = `
-            <p class="infoText">${info}</p>
-            <p class="infoText">You can delete any number you have entered by double clicking on it.</p>`
+        if (document.documentElement.lang == "en"){
+            document.getElementById("infoScreen").querySelector(".infoPopup").innerHTML = `
+                <p class="infoText">${info}</p>
+                <p class="infoText">You can delete any number you have entered by double clicking on it.</p>`
+        }
+        else{
+            document.getElementById("infoScreen").querySelector(".infoPopup").innerHTML = `
+                <p class="infoText">${info}</p>
+                <p class="infoText">Може да изтриете цифра като натиснете 2 пъти върху нея.</p>`
+        }
     }
     else{
         document.getElementById("infoScreen").querySelector(".infoPopup").innerHTML = `<p class="infoText">${info}</p>`
@@ -448,3 +470,84 @@ document.querySelectorAll(".overlay").forEach(function(overlay){
         }
     })
 })
+
+window.addEventListener("load", () => {document.documentElement.lang = localStorage.getItem('langSet'), textChange()})
+
+function changeLang (lang) {
+    document.documentElement.lang = lang
+    localStorage.setItem('langSet', lang);
+    textChange()
+}
+
+function textChange(){
+    document.documentElement.lang === "bg" 
+            ? ( document.getElementsByClassName("language-selector")[0].children[1].selected = true, document.getElementsByClassName("language-selector")[0].children[0].selected = false )
+            : ( document.getElementsByClassName("language-selector")[0].children[0].selected = true, document.getElementsByClassName("language-selector")[0].children[1].selected = false )
+
+    if (document.documentElement.lang === "bg"){
+        document.title = "Судоку Загадки"
+        document.getElementById("title").textContent = "Судоку"
+        document.getElementById("gameSetup").textContent = "Настройки на играта:"
+        document.getElementById("game").textContent = "Нова игра"
+        document.getElementById("resetBoard").textContent = "Рестарт на игра"
+        document.getElementById("inputColor").textContent = "Цвят на писане:"
+        document.getElementById("customInputColor").textContent = "Друг цвят на писане:"
+        document.getElementById("color-toggle").textContent = "Промени цвета на писане"
+        document.getElementById("grayButton").textContent = "Сив"
+        document.getElementById("yellowButton").textContent = "Жълт"
+        document.getElementById("greenButton").textContent = "Зелен"
+        document.getElementById("blueButton").textContent = "Син"
+        document.getElementById("customColorPopup").textContent = "Друг цвят на писане:"
+        document.getElementById("gameplay-toggle").innerHTML = `<span id="pipe">Покажи</span> инструкции за играта`
+        document.getElementById("gameplayTitle").textContent = "Инструкции:"
+        document.getElementById("gameplay").children[0].textContent = "Натиснете Нова игра за да изберете трудност и дали искате известия за грешки"
+        document.getElementById("gameplay").children[1].textContent = "Натиснете Рестарт на игра за да рестартирате текущото судоку"
+        document.getElementById("gameplay").children[2].textContent = "Натиснете свободна клетка за да въведете цифрата, която смятате, че трябва да е там"
+        document.getElementById("gameplay").children[3].textContent = "Натиснете клетка, която вече сте попълнили за да редактирате въведената цифра (ако натиснете на друго място без да промените цифрата, ще се върне предишната)"
+        document.getElementById("gameplay").children[4].textContent = "Натиснете 2 пъти върху попълнена клетка, за да изтриете въведената там цифра"
+        document.getElementById("easy").textContent = "Лесно"
+        document.getElementById("medium").textContent = "Средно"
+        document.getElementById("hard").textContent = "Трудно"
+        document.getElementById("random").textContent = "Случайно"
+        document.getElementById("showMistakesButton").textContent = "Покажи грешките"
+        document.getElementById("hideMistakesButton").textContent = "Скрий грешките"
+        document.getElementById("show").textContent = "Покажи грешките"
+        document.getElementById("hide").textContent = "Скрий грешките"
+        document.getElementById("resetConfirm").textContent = "Сигурен ли сте, че искате да рестартирате играта?"
+        document.getElementById("yes").textContent = "Да"
+        document.getElementById("no").textContent = "Не"
+    }
+    else{
+        document.title = "Sudoku Puzzles"
+        document.getElementById("title").textContent = "Sudoku"
+        document.getElementById("gameSetup").textContent = "Game Setup:"
+        document.getElementById("game").textContent = "New Game"
+        document.getElementById("resetBoard").textContent = "Reset Board"
+        document.getElementById("inputColor").textContent = "Input Color:"
+        document.getElementById("customInputColor").textContent = "Custom Input Color:"
+        document.getElementById("color-toggle").textContent = "Change Input Color"
+        document.getElementById("grayButton").textContent = "Gray"
+        document.getElementById("yellowButton").textContent = "Yellow"
+        document.getElementById("greenButton").textContent = "Green"
+        document.getElementById("blueButton").textContent = "Blue"
+        document.getElementById("customColorPopup").textContent = "Custom Input Color:"
+        document.getElementById("gameplay-toggle").innerHTML = `<span id="pipe">Show</span> Gameplay Instructions`
+        document.getElementById("gameplayTitle").textContent = "Gameplay:"
+        document.getElementById("gameplay").children[0].textContent = "Click New Game to select a difficulty level and whether you would like to be notified for any mistakes"
+        document.getElementById("gameplay").children[1].textContent = "Click Reset Board to restart your current board"
+        document.getElementById("gameplay").children[2].textContent = "Click on any free cell to enter the number you think should be there"
+        document.getElementById("gameplay").children[3].textContent = "Click on any cell that you have already filled to edit the number in it (if you click away, your previously entered number would remain there)"
+        document.getElementById("gameplay").children[4].textContent = "Double click on any cell that you have filled with a number to delete that number"
+        document.getElementById("easy").textContent = "Easy"
+        document.getElementById("medium").textContent = "Medium"
+        document.getElementById("hard").textContent = "Hard"
+        document.getElementById("random").textContent = "Random"
+        document.getElementById("showMistakesButton").textContent = "Show Mistakes"
+        document.getElementById("hideMistakesButton").textContent = "Hide Mistakes"
+        document.getElementById("show").textContent = "Show Mistakes"
+        document.getElementById("hide").textContent = "Hide Mistakes"
+        document.getElementById("resetConfirm").textContent = "Are you sure you want to reset the board?"
+        document.getElementById("yes").textContent = "Yes"
+        document.getElementById("no").textContent = "No"
+    }
+}
