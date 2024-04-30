@@ -184,6 +184,7 @@ button a{
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 .popup {
@@ -527,6 +528,6 @@ button a{
     .language-selector{
         right: unset !important;
         left: 2rem;
-        font-size: 3rem;
+        font-size: 8vw;
     }
 }

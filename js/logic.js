@@ -196,11 +196,12 @@ function drawBoard(board){
             errors = false
             checkWin()
             if (errors==false){
-                document.documentElement.lang == "en" ? openInfoWindow("Congratulations!", 0) : openInfoWindow("Поздравления!", 0)
+                document.documentElement.lang == "en" ? openInfoWindow("Congratulations!", displayTime) : openInfoWindow("Поздравления!", displayTime)
                 let inputs = document.querySelectorAll("input[type=number]")
                 inputs.forEach(function(input){
                     input.disabled = true
                     input.classList.add("solved")
+                    stopStopwatch()
                 })
             }
             else{
@@ -347,6 +348,8 @@ function selectDiff(diff) {
                     }
                     document.documentElement.lang == "en" ? document.getElementById("title").textContent = `Sudoku - Level: ${capitalizeFirstLetter(diff)}` : document.getElementById("title").textContent = `Судоку - Ниво: ${bg_diff}`
                     drawBoard(board);
+                    resetStopwatch()
+                    startStopwatch()
                 }
                 })
         .catch(error => {document.documentElement.lang == "en" ? openInfoWindow("Network problem, please try again later!", 0) : openInfoWindow("Проблеми с връзката, моля опитайте по-късно!", 0)})
@@ -429,7 +432,7 @@ function closeConfirmation(){
 function openInfoWindow(info, additional){
     document.getElementById("infoScreen").children[0].classList.add("active")
     document.getElementById("infoScreen").classList.add("active")
-    if (additional != 0){
+    if (additional == 1){
         if (document.documentElement.lang == "en"){
             document.getElementById("infoScreen").querySelector(".infoPopup").innerHTML = `
                 <p class="infoText">${info}</p>
@@ -441,8 +444,20 @@ function openInfoWindow(info, additional){
                 <p class="infoText">Може да изтриете цифра като натиснете 2 пъти върху нея.</p>`
         }
     }
-    else{
+    else if (additional == 0){
         document.getElementById("infoScreen").querySelector(".infoPopup").innerHTML = `<p class="infoText">${info}</p>`
+    }
+    else{
+        if (document.documentElement.lang == "en"){
+            document.getElementById("infoScreen").querySelector(".infoPopup").innerHTML = `
+                <p class="infoText">${info}</p>
+                <p class="infoText">Your time is: ${additional}</p>`
+        }
+        else{
+            document.getElementById("infoScreen").querySelector(".infoPopup").innerHTML = `
+                <p class="infoText">${info}</p>
+                <p class="infoText">Времето ви за решаване е: ${additional}</p>`
+        }
     }
 }
 function closeInfoWindow(){
@@ -550,4 +565,44 @@ function textChange(){
         document.getElementById("yes").textContent = "Yes"
         document.getElementById("no").textContent = "No"
     }
+}
+
+
+// Stopwatch
+
+var startTime; // to keep track of the start time
+var stopwatchInterval; // to keep track of the interval
+var elapsedPausedTime = 0; // to keep track of the elapsed time while stopped
+var displayTime
+
+function startStopwatch() {
+if (!stopwatchInterval) {
+    startTime = new Date().getTime() - elapsedPausedTime; // get the starting time by subtracting the elapsed paused time from the current time
+    stopwatchInterval = setInterval(updateStopwatch, 1000); // update every second
+}
+}
+
+function stopStopwatch() {
+    clearInterval(stopwatchInterval); // stop the interval
+    elapsedPausedTime = new Date().getTime() - startTime; // calculate elapsed paused time
+    stopwatchInterval = null; // reset the interval variable
+}
+
+function resetStopwatch() {
+    stopStopwatch(); // stop the interval
+    elapsedPausedTime = 0; // reset the elapsed paused time variable
+}
+
+function updateStopwatch() {
+    var currentTime = new Date().getTime(); // get current time in milliseconds
+    var elapsedTime = currentTime - startTime; // calculate elapsed time in milliseconds
+    var seconds = Math.floor(elapsedTime / 1000) % 60; // calculate seconds
+    var minutes = Math.floor(elapsedTime / 1000 / 60) % 60; // calculate minutes
+    var hours = Math.floor(elapsedTime / 1000 / 60 / 60); // calculate hours
+    displayTime = pad(hours) + ":" + pad(minutes) + ":" + pad(seconds); // format display time
+}
+
+function pad(number) {
+    // add a leading zero if the number is less than 10
+    return (number < 10 ? "0" : "") + number;
 }
