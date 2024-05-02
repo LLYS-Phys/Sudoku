@@ -185,6 +185,11 @@ button a{
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    flex-direction: column;
+}
+.overlay.loader p{
+    color: white;
+    font-size: 2rem;
 }
 
 .popup {
@@ -407,6 +412,9 @@ button a{
     }
     .infoText{
         font-size: 4vw;
+    }
+    .overlay.loader p{
+        font-size: 6vw;
     }
     h2{
         display: none;

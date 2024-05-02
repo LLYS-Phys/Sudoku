@@ -528,6 +528,7 @@ function textChange(){
         document.getElementById("resetConfirm").textContent = "Сигурен ли сте, че искате да рестартирате играта?"
         document.getElementById("yes").textContent = "Да"
         document.getElementById("no").textContent = "Не"
+        document.getElementById("loader-text").textContent = "Моля изчакайте да зареди судокуто (Първото може да зареди по-бавно)"
     }
     else{
         document.title = "Sudoku Puzzles"
@@ -561,6 +562,7 @@ function textChange(){
         document.getElementById("resetConfirm").textContent = "Are you sure you want to reset the board?"
         document.getElementById("yes").textContent = "Yes"
         document.getElementById("no").textContent = "No"
+        document.getElementById("loader-text").textContent = "Please wait while the sudoku is loaded (First one might load slower)"
     }
 }
 
