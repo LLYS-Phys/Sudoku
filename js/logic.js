@@ -367,6 +367,8 @@ function reset(){
     })
     document.getElementById("resetConfirmation").children[0].classList.remove("active")
     document.getElementById("resetConfirmation").classList.remove("active")
+    resetStopwatch()
+    startStopwatch()
 }
 
 function newG(diff){
