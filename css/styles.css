@@ -190,6 +190,7 @@ button a{
 .overlay.loader p{
     color: white;
     font-size: 2rem;
+    padding: 5%;
 }
 
 .popup {
