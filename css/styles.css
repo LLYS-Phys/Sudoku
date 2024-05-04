@@ -662,4 +662,10 @@ button a{
         left: 2rem;
         font-size: 8vw;
     }
+    #infoScreen.congrats .firework::before {
+        transform: translate(-50%, -50%) rotate(40deg) scale(3.3) rotateY(40deg);
+    }
+    #infoScreen.congrats .firework::after {
+        transform: translate(-50%, -50%) rotate(170deg) scale(3.15) rotateY(-30deg);
+    }
 }
