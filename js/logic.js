@@ -206,6 +206,7 @@ function drawBoard(board){
                     input.classList.add("solved")
                     stopStopwatch()
                 })
+                document.getElementById("infoScreen").classList.add("congrats")
             }
             else{
                 document.documentElement.lang == "en" ? openInfoWindow("You have errors!", 1) : openInfoWindow("Имате грешки!", 1)
@@ -345,8 +346,9 @@ function selectDiff(diff) {
                     drawBoard(board);
                     resetStopwatch()
                     startStopwatch()
+                    document.getElementById("infoScreen").classList.remove("congrats")
                 }
-                })
+            })
         .catch(error => {document.documentElement.lang == "en" ? openInfoWindow("Network problem, please try again later!", 0) : openInfoWindow("Проблеми с връзката, моля опитайте по-късно!", 0)})
 }
 
@@ -369,6 +371,7 @@ function reset(){
     document.getElementById("resetConfirmation").classList.remove("active")
     resetStopwatch()
     startStopwatch()
+    document.getElementById("infoScreen").classList.remove("congrats")
 }
 
 function newG(diff){
